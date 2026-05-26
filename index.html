@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta_title">Cusco Travel Helper | Private Transfer Quotes & Trip Logistics</title>
+  <meta name="description" content="Request private transfer quotes in Cusco for the airport, Sacred Valley, Ollantaytambo and train stations. Get itinerary and Machu Picchu logistics help by WhatsApp." data-i18n-attr="content" data-i18n="meta_description">
+  <link rel="canonical" href="https://cuscotravelhelper.com/">
+  <meta property="og:title" content="Cusco Travel Helper | Private Transfer Quotes & Trip Logistics" data-i18n-attr="content" data-i18n="og_title">
+  <meta property="og:description" content="Request private transfer quotes in Cusco for the airport, Sacred Valley, Ollantaytambo and train stations. Get itinerary and Machu Picchu logistics help by WhatsApp." data-i18n-attr="content" data-i18n="og_description">
+  <meta property="og:image" content="https://cuscotravelhelper.com/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" data-i18n="brand_name">Cusco Travel Helper</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#quote-form-section" data-i18n="nav_transfer">Transfer quote</a>
+        <a href="#routes" data-i18n="nav_routes">Routes</a>
+        <a href="#trip-checks" data-i18n="nav_trip_checks">Trip checks</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" onclick="setLanguage('en')" id="btn-en" class="active" aria-pressed="true">EN</button>
+          <span class="lang-divider">/</span>
+          <button type="button" onclick="setLanguage('es')" id="btn-es" aria-pressed="false">ES</button>
+        </div>
+        <a href="https://wa.me/51986128511" class="btn-whatsapp-header" target="_blank" rel="noopener" data-i18n="whatsapp_short" onclick="trackEvent('whatsapp_click', { location: 'header' })">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 data-i18n="hero_title">Private transfers in Cusco, made easier</h1>
+          <p class="hero-subtitle" data-i18n="hero_subtitle">Get a quick route quote for the airport, Sacred Valley, Ollantaytambo, train stations and day trips. Send your request by WhatsApp.</p>
+          <div class="hero-ctas">
+            <a href="#quote-form-section" class="btn-primary" data-i18n="cta_transfer_quote" onclick="trackEvent('transfer_quote_started', { source: 'hero' })">Get a transfer quote</a>
+            <a href="#trip-checks" class="btn-secondary" data-i18n="cta_check_itinerary" onclick="trackEvent('itinerary_check_clicked', { source: 'hero' })">Check my itinerary</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar" id="trust-bar">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <span class="trust-dot"></span>
+            <p data-i18n="trust_1">Reference quotes, not final prices</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-dot"></span>
+            <p data-i18n="trust_2">WhatsApp request with clear trip details</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-dot"></span>
+            <p data-i18n="trust_3">Airport, Sacred Valley and train station routes</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-dot"></span>
+            <p data-i18n="trust_4">Planning assistance, not an official ticket seller</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transfer Quote Form -->
+    <section class="quote-section" id="quote-form-section">
+      <div class="container">
+        <h2 data-i18n="form_title">Request a private transfer quote</h2>
+        <p class="section-intro" data-i18n="form_intro">Fill in your trip details and we will prepare a clear WhatsApp request for you. Prices are referential and must be confirmed by a local provider.</p>
+
+        <form id="transfer-form" novalidate>
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="lang-preference" data-i18n="label_lang">Language preference</label>
+              <select id="lang-preference" name="lang_preference">
+                <option value="english" data-i18n="opt_english">English</option>
+                <option value="spanish" data-i18n="opt_spanish">Spanish</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="origin" data-i18n="label_origin">Origin</label>
+              <select id="origin" name="origin" required>
+                <option value="" disabled selected data-i18n="placeholder_select">Select...</option>
+                <option value="Cusco Airport">Cusco Airport</option>
+                <option value="Cusco Center">Cusco Center</option>
+                <option value="San Blas">San Blas</option>
+                <option value="Poroy Station">Poroy Station</option>
+                <option value="Wanchaq Station">Wanchaq Station</option>
+                <option value="Ollantaytambo">Ollantaytambo</option>
+                <option value="Urubamba">Urubamba</option>
+                <option value="Pisac">Pisac</option>
+                <option value="Chinchero">Chinchero</option>
+                <option value="Maras">Maras</option>
+                <option value="Moray">Moray</option>
+                <option value="Sacred Valley">Sacred Valley</option>
+                <option value="Hidroelectrica">Hidroelectrica</option>
+                <option value="Humantay Lake">Humantay Lake</option>
+                <option value="Rainbow Mountain">Rainbow Mountain</option>
+                <option value="Other" data-i18n="opt_other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="destination" data-i18n="label_destination">Destination</label>
+              <select id="destination" name="destination" required>
+                <option value="" disabled selected data-i18n="placeholder_select">Select...</option>
+                <option value="Cusco Airport">Cusco Airport</option>
+                <option value="Cusco Center">Cusco Center</option>
+                <option value="San Blas">San Blas</option>
+                <option value="Poroy Station">Poroy Station</option>
+                <option value="Wanchaq Station">Wanchaq Station</option>
+                <option value="Ollantaytambo">Ollantaytambo</option>
+                <option value="Urubamba">Urubamba</option>
+                <option value="Pisac">Pisac</option>
+                <option value="Chinchero">Chinchero</option>
+                <option value="Maras">Maras</option>
+                <option value="Moray">Moray</option>
+                <option value="Sacred Valley">Sacred Valley</option>
+                <option value="Hidroelectrica">Hidroelectrica</option>
+                <option value="Humantay Lake">Humantay Lake</option>
+                <option value="Rainbow Mountain">Rainbow Mountain</option>
+                <option value="Other" data-i18n="opt_other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="trip-date" data-i18n="label_date">Date</label>
+              <input type="date" id="trip-date" name="trip_date" required>
+            </div>
+
+            <div class="form-group">
+              <label for="trip-time" data-i18n="label_time">Time</label>
+              <input type="time" id="trip-time" name="trip_time" required>
+            </div>
+
+            <div class="form-group">
+              <label for="travelers" data-i18n="label_travelers">Number of travelers</label>
+              <select id="travelers" name="travelers" required>
+                <option value="" disabled selected data-i18n="placeholder_select">Select...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8+</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="luggage" data-i18n="label_luggage">Luggage</label>
+              <select id="luggage" name="luggage" required>
+                <option value="" disabled selected data-i18n="placeholder_select">Select...</option>
+                <option value="small bags only" data-i18n="opt_small_bags">Small bags only</option>
+                <option value="medium luggage" data-i18n="opt_medium_luggage">Medium luggage</option>
+                <option value="large luggage" data-i18n="opt_large_luggage">Large luggage</option>
+                <option value="not sure" data-i18n="opt_not_sure">Not sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="vehicle" data-i18n="label_vehicle">Vehicle preference</label>
+              <select id="vehicle" name="vehicle" required>
+                <option value="" disabled selected data-i18n="placeholder_select">Select...</option>
+                <option value="no preference" data-i18n="opt_no_pref">No preference</option>
+                <option value="sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="minivan">Minivan</option>
+                <option value="van for groups" data-i18n="opt_van">Van for groups</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="stops" data-i18n="label_stops">Stops needed</label>
+              <select id="stops" name="stops" required>
+                <option value="" disabled selected data-i18n="placeholder_select">Select...</option>
+                <option value="direct transfer" data-i18n="opt_direct">Direct transfer</option>
+                <option value="with stops" data-i18n="opt_with_stops">With stops</option>
+                <option value="not sure" data-i18n="opt_not_sure">Not sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pickup" data-i18n="label_pickup">Pickup details</label>
+              <select id="pickup" name="pickup" required>
+                <option value="" disabled selected data-i18n="placeholder_select">Select...</option>
+                <option value="airport" data-i18n="opt_airport">Airport</option>
+                <option value="hotel" data-i18n="opt_hotel">Hotel</option>
+                <option value="train station" data-i18n="opt_train_station">Train station</option>
+                <option value="address to confirm" data-i18n="opt_address">Address to confirm</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="flight-number" data-i18n="label_flight">Flight or train number (optional)</label>
+              <input type="text" id="flight-number" name="flight_number" placeholder="LA1234, Vistadome 31, etc.">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="concern" data-i18n="label_concern">Main concern</label>
+              <select id="concern" name="concern" required>
+                <option value="" disabled selected data-i18n="placeholder_select">Select...</option>
+                <option value="price" data-i18n="opt_price">Price</option>
+                <option value="timing" data-i18n="opt_timing">Timing</option>
+                <option value="luggage" data-i18n="opt_luggage_concern">Luggage</option>
+                <option value="safety" data-i18n="opt_safety">Safety</option>
+                <option value="train connection" data-i18n="opt_train">Train connection</option>
+                <option value="traveling with kids" data-i18n="opt_kids">Traveling with kids</option>
+                <option value="traveling in a group" data-i18n="opt_group">Traveling in a group</option>
+                <option value="other" data-i18n="opt_other_concern">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="notes" data-i18n="label_notes">Additional notes</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="Hotel name, special needs, questions..."></textarea>
+            </div>
+
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary" data-i18n="btn_generate_quote">Generate my quote request</button>
+            <button type="button" class="btn-ghost" onclick="resetForm()" data-i18n="btn_reset">Clear form</button>
+          </div>
+        </form>
+
+        <!-- Quote Result -->
+        <div id="quote-result" class="quote-result hidden" aria-live="polite">
+          <div class="result-card">
+            <h3 data-i18n="result_title">Your transfer request summary</h3>
+            <div id="result-content"></div>
+            <div class="result-actions">
+              <a id="result-whatsapp-btn" href="#" class="btn-primary" target="_blank" rel="noopener" data-i18n="btn_send_whatsapp">Send request by WhatsApp</a>
+              <button type="button" class="btn-secondary" onclick="copyRequestToClipboard()" data-i18n="btn_copy">Copy request</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Routes -->
+    <section class="routes-section" id="routes">
+      <div class="container">
+        <h2 data-i18n="routes_title">Popular routes</h2>
+        <p class="section-intro" data-i18n="routes_intro">Click any route to prefill the quote form with origin and destination.</p>
+        <div id="routes-grid" class="routes-grid"></div>
+      </div>
+    </section>
+
+    <!-- Trip Checks -->
+    <section class="trip-checks-section" id="trip-checks">
+      <div class="container">
+        <h2 data-i18n="trip_checks_title">Already booked a tour or package?</h2>
+        <p class="section-intro" data-i18n="trip_checks_intro">If you already have a Cusco or Machu Picchu package, we can help you understand timing, inclusions, free-time gaps and logistics questions to confirm with your agency.</p>
+        <div id="products-grid" class="products-grid"></div>
+      </div>
+    </section>
+
+    <!-- Machu Picchu Note -->
+    <section class="machu-note" id="machu-picchu-note">
+      <div class="container">
+        <div class="machu-note-card">
+          <h2 data-i18n="machu_title">Machu Picchu logistics need careful timing</h2>
+          <p data-i18n="machu_text">Machu Picchu requires careful coordination between entry time, circuit or route, train, bus, guide, luggage and return transport. This tool does not sell official tickets or guarantee availability.</p>
+          <a href="#trip-checks" class="btn-secondary" data-i18n="cta_machu_check" onclick="trackEvent('machu_picchu_check_clicked', { source: 'note' })">Check my Machu Picchu logistics</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <h2 data-i18n="faq_title">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary data-i18n="faq_q1">Do you sell Machu Picchu tickets?</summary>
+            <p data-i18n="faq_a1">No. We do not sell Machu Picchu entry tickets, train tickets or bus tickets. We help you review your logistics and prepare clear questions for your agency or official providers.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary data-i18n="faq_q2">Are transfer prices guaranteed?</summary>
+            <p data-i18n="faq_a2">No. All prices shown or referenced are indicative and must be confirmed by a local transport provider. Final rates depend on vehicle type, route conditions, fuel prices and demand.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary data-i18n="faq_q3">Is this an official transport company?</summary>
+            <p data-i18n="faq_a3">No. Cusco Travel Helper is an independent trip assistance tool. We are not a transport operator, travel agency or government entity. We help you structure your route request and connect with local providers.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary data-i18n="faq_q4">Can I book directly here?</summary>
+            <p data-i18n="faq_a4">You cannot complete a confirmed booking on this site. You can generate a detailed WhatsApp request and continue the conversation directly with a provider. Transport is confirmed only after a provider accepts the request.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary data-i18n="faq_q5">What happens after I send the WhatsApp request?</summary>
+            <p data-i18n="faq_a5">A local provider will review your trip details and respond with availability, final price and vehicle information. We recommend confirming vehicle type, driver license, insurance and pickup protocol before agreeing.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary data-i18n="faq_q6">Can you help if I already booked a tour package?</summary>
+            <p data-i18n="faq_a6">Yes. Our Trip Check services help you review your itinerary, identify missing logistics and prepare questions for your tour operator. We do not replace your agency, we add clarity.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary data-i18n="faq_q7">Should I sleep in Cusco or Ollantaytambo before Machu Picchu?</summary>
+            <p data-i18n="faq_a7">It depends on your train schedule. Ollantaytambo is closer to Machu Picchu and useful for early trains. Cusco offers more accommodation and dining options. We can review your specific itinerary to recommend the best option.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary data-i18n="faq_q8">Can I request a private driver?</summary>
+            <p data-i18n="faq_a8">Yes. You can specify your preference in the transfer form. Select your vehicle type and mention any specific needs in the additional notes. The provider will confirm driver availability.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary data-i18n="faq_q9">Do you work with verified operators?</summary>
+            <p data-i18n="faq_a9">We are currently validating local providers. Always confirm vehicle, driver, license, insurance and final price before booking. We do not guarantee the quality of any specific operator.</p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo" data-i18n="brand_name">Cusco Travel Helper</p>
+          <p class="footer-tagline" data-i18n="footer_tagline">Private transfers and travel logistics in Cusco, made easier.</p>
+        </div>
+        <div class="footer-contact">
+          <a href="https://wa.me/51986128511" class="footer-wa" target="_blank" rel="noopener" onclick="trackEvent('whatsapp_click', { location: 'footer' })">
+            <span data-i18n="footer_whatsapp">WhatsApp:</span> +51986128511
+          </a>
+          <p class="footer-email">
+            <span data-i18n="footer_email_label">Email:</span> hello@cuscotravelhelper.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <p data-i18n="footer_disclaimer">This is an independent trip and transfer assistance tool. It does not sell Machu Picchu tickets, train tickets or confirmed transport services. Prices, schedules and availability must be confirmed with official providers or local operators.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
