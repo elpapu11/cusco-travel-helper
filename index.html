@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="meta_title">Cusco Travel Helper | Private Transfer Quotes & Trip Logistics</title>
+  <title data-i18n="meta_title">Cusco Travel Helper | Private Transfer Quotes &amp; Trip Logistics</title>
   <meta name="description" content="Request private transfer quotes in Cusco for the airport, Sacred Valley, Ollantaytambo and train stations. Get itinerary and Machu Picchu logistics help by WhatsApp." data-i18n-attr="content" data-i18n="meta_description">
   <link rel="canonical" href="https://cuscotravelhelper.com/">
-  <meta property="og:title" content="Cusco Travel Helper | Private Transfer Quotes & Trip Logistics" data-i18n-attr="content" data-i18n="og_title">
+  <meta property="og:title" content="Cusco Travel Helper | Private Transfer Quotes &amp; Trip Logistics" data-i18n-attr="content" data-i18n="og_title">
   <meta property="og:description" content="Request private transfer quotes in Cusco for the airport, Sacred Valley, Ollantaytambo and train stations. Get itinerary and Machu Picchu logistics help by WhatsApp." data-i18n-attr="content" data-i18n="og_description">
   <meta property="og:image" content="https://cuscotravelhelper.com/og-image.jpg">
   <meta property="og:type" content="website">
@@ -28,7 +28,9 @@
     <div class="container header-inner">
       <a href="#" class="logo" data-i18n="brand_name">Cusco Travel Helper</a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="#quote-form-section" data-i18n="nav_transfer">Transfer quote</a>
+        <!-- Nav links point to section IDs that may become separate pages in the future:
+             /transfer-quote, /routes, /trip-checks, /faq -->
+        <a href="#transfer-quote" data-i18n="nav_transfer">Transfer quote</a>
         <a href="#routes" data-i18n="nav_routes">Routes</a>
         <a href="#trip-checks" data-i18n="nav_trip_checks">Trip checks</a>
         <a href="#faq" data-i18n="nav_faq">FAQ</a>
@@ -49,12 +51,50 @@
     <!-- Hero -->
     <section class="hero" id="hero">
       <div class="container">
-        <div class="hero-content">
-          <h1 data-i18n="hero_title">Private transfers in Cusco, made easier</h1>
-          <p class="hero-subtitle" data-i18n="hero_subtitle">Get a quick route quote for the airport, Sacred Valley, Ollantaytambo, train stations and day trips. Send your request by WhatsApp.</p>
-          <div class="hero-ctas">
-            <a href="#quote-form-section" class="btn-primary" data-i18n="cta_transfer_quote" onclick="trackEvent('transfer_quote_started', { source: 'hero' })">Get a transfer quote</a>
-            <a href="#trip-checks" class="btn-secondary" data-i18n="cta_check_itinerary" onclick="trackEvent('itinerary_check_clicked', { source: 'hero' })">Check my itinerary</a>
+        <div class="hero-inner">
+          <div class="hero-content">
+            <h1 data-i18n="hero_title">Private transfers in Cusco, made easier</h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Get a quick route quote for the airport, Sacred Valley, Ollantaytambo, train stations and day trips. Send your request by WhatsApp.</p>
+            <div class="hero-ctas">
+              <a href="#transfer-quote" class="btn-primary" data-i18n="cta_transfer_quote" onclick="trackEvent('transfer_quote_started', { source: 'hero' })">Get a transfer quote</a>
+              <a href="#trip-checks" class="btn-secondary" data-i18n="cta_check_itinerary" onclick="trackEvent('itinerary_check_clicked', { source: 'hero' })">Check my itinerary</a>
+            </div>
+          </div>
+          <!-- Hero visual: abstract route map -->
+          <div class="hero-visual" aria-hidden="true">
+            <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" role="img" data-i18n-alt="hero_svg_alt">
+              <title>Abstract route map showing Cusco, the airport, Sacred Valley and Ollantaytambo</title>
+              <!-- Background mountains -->
+              <path d="M0 180 L60 80 L120 160 L180 60 L240 140 L300 50 L360 130 L420 70 L480 150 L480 280 L0 280 Z" fill="rgba(255,255,255,0.04)"/>
+              <path d="M0 200 L80 120 L160 190 L240 100 L320 180 L400 110 L480 170 L480 280 L0 280 Z" fill="rgba(255,255,255,0.03)"/>
+              <!-- Route line -->
+              <path d="M40 200 Q120 180 200 140 Q280 100 360 80 Q420 65 450 55" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.7"/>
+              <!-- Connection lines -->
+              <line x1="200" y1="140" x2="240" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="360" y1="80" x2="400" y2="120" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+              <!-- Node: Airport -->
+              <circle cx="40" cy="200" r="10" fill="#1a4a6e" stroke="#c9a84c" stroke-width="2"/>
+              <text x="40" y="228" fill="rgba(255,255,255,0.75)" font-size="10" font-family="system-ui, sans-serif" text-anchor="middle" font-weight="600">Airport</text>
+              <!-- Node: Cusco -->
+              <circle cx="200" cy="140" r="12" fill="#1a4a6e" stroke="#c9a84c" stroke-width="2.5"/>
+              <text x="200" y="132" fill="rgba(255,255,255,0.9)" font-size="11" font-family="system-ui, sans-serif" text-anchor="middle" font-weight="700">Cusco</text>
+              <!-- Node: Sacred Valley -->
+              <circle cx="360" cy="80" r="10" fill="#1a4a6e" stroke="#c9a84c" stroke-width="2"/>
+              <text x="360" y="68" fill="rgba(255,255,255,0.75)" font-size="9" font-family="system-ui, sans-serif" text-anchor="middle" font-weight="600">Sacred Valley</text>
+              <!-- Node: Ollantaytambo -->
+              <circle cx="450" cy="55" r="10" fill="#1a4a6e" stroke="#c9a84c" stroke-width="2"/>
+              <text x="450" y="43" fill="rgba(255,255,255,0.75)" font-size="9" font-family="system-ui, sans-serif" text-anchor="middle" font-weight="600">Ollantaytambo</text>
+              <!-- Secondary node: Train -->
+              <circle cx="240" cy="180" r="6" fill="rgba(201,168,76,0.3)" stroke="#c9a84c" stroke-width="1.5"/>
+              <text x="240" y="200" fill="rgba(255,255,255,0.6)" font-size="9" font-family="system-ui, sans-serif" text-anchor="middle">Train</text>
+              <!-- Secondary node: Machu Picchu -->
+              <circle cx="400" cy="120" r="6" fill="rgba(201,168,76,0.3)" stroke="#c9a84c" stroke-width="1.5"/>
+              <text x="400" y="138" fill="rgba(255,255,255,0.6)" font-size="9" font-family="system-ui, sans-serif" text-anchor="middle">Machu Picchu</text>
+              <!-- Decorative dots along route -->
+              <circle cx="100" cy="185" r="2.5" fill="#c9a84c" opacity="0.5"/>
+              <circle cx="280" cy="110" r="2.5" fill="#c9a84c" opacity="0.5"/>
+              <circle cx="410" cy="68" r="2.5" fill="#c9a84c" opacity="0.5"/>
+            </svg>
           </div>
         </div>
       </div>
@@ -85,7 +125,8 @@
     </section>
 
     <!-- Transfer Quote Form -->
-    <section class="quote-section" id="quote-form-section">
+    <!-- Section ID prepared for future /transfer-quote page -->
+    <section class="quote-section" id="transfer-quote">
       <div class="container">
         <h2 data-i18n="form_title">Request a private transfer quote</h2>
         <p class="section-intro" data-i18n="form_intro">Fill in your trip details and we will prepare a clear WhatsApp request for you. Prices are referential and must be confirmed by a local provider.</p>
@@ -98,6 +139,18 @@
               <select id="lang-preference" name="lang_preference">
                 <option value="english" data-i18n="opt_english">English</option>
                 <option value="spanish" data-i18n="opt_spanish">Spanish</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="trip-type" data-i18n="label_trip_type">What best describes your trip? (optional)</label>
+              <select id="trip-type" name="trip_type" onchange="trackEvent('trip_type_selected', { type: this.value })">
+                <option value="" disabled selected data-i18n="placeholder_select_trip_type">Select...</option>
+                <option value="transfer_only" data-i18n="opt_transfer_only">I need a transfer</option>
+                <option value="machu_picchu_booked" data-i18n="opt_machu_picchu_booked">I already booked Machu Picchu</option>
+                <option value="package_booked" data-i18n="opt_package_booked">I already booked a tour package</option>
+                <option value="still_planning" data-i18n="opt_still_planning">I'm still planning my itinerary</option>
+                <option value="not_sure" data-i18n="opt_not_sure_yet">I'm not sure yet</option>
               </select>
             </div>
 
@@ -273,16 +326,48 @@
     </section>
 
     <!-- Trip Checks -->
+    <!-- Section ID prepared for future /trip-checks page -->
     <section class="trip-checks-section" id="trip-checks">
       <div class="container">
-        <h2 data-i18n="trip_checks_title">Already booked a tour or package?</h2>
-        <p class="section-intro" data-i18n="trip_checks_intro">If you already have a Cusco or Machu Picchu package, we can help you understand timing, inclusions, free-time gaps and logistics questions to confirm with your agency.</p>
+        <div class="trip-checks-header">
+          <div class="trip-checks-text">
+            <h2 data-i18n="trip_checks_title">Need help checking your Machu Picchu plan or tour package?</h2>
+            <p class="section-intro" data-i18n="trip_checks_intro">If you already have Machu Picchu tickets, train schedules or a tour package, we can help you review timing, inclusions, logistics risks and questions to confirm before your trip.</p>
+          </div>
+          <!-- Trip checks visual: checklist + route -->
+          <div class="trip-checks-visual" aria-hidden="true">
+            <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" role="img">
+              <title>Checklist and route review illustration</title>
+              <!-- Checklist paper -->
+              <rect x="10" y="10" width="90" height="120" rx="6" fill="rgba(255,255,255,0.6)" stroke="#ddd5c7" stroke-width="1"/>
+              <!-- Check items -->
+              <rect x="22" y="28" width="10" height="10" rx="2" fill="none" stroke="#4a7c59" stroke-width="1.5"/>
+              <path d="M24 33 L27 36 L32 30" fill="none" stroke="#4a7c59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="38" y1="33" x2="82" y2="33" stroke="#ccc" stroke-width="2" stroke-linecap="round"/>
+              <rect x="22" y="50" width="10" height="10" rx="2" fill="none" stroke="#4a7c59" stroke-width="1.5"/>
+              <path d="M24 55 L27 58 L32 52" fill="none" stroke="#4a7c59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="38" y1="55" x2="78" y2="55" stroke="#ccc" stroke-width="2" stroke-linecap="round"/>
+              <rect x="22" y="72" width="10" height="10" rx="2" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+              <line x1="38" y1="77" x2="80" y2="77" stroke="#ddd" stroke-width="2" stroke-linecap="round"/>
+              <rect x="22" y="94" width="10" height="10" rx="2" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+              <line x1="38" y1="99" x2="72" y2="99" stroke="#ddd" stroke-width="2" stroke-linecap="round"/>
+              <!-- Route line -->
+              <path d="M120 130 Q150 110 170 80 Q185 55 190 30" fill="none" stroke="#c9a84c" stroke-width="2" stroke-dasharray="6 4" opacity="0.6"/>
+              <circle cx="120" cy="130" r="5" fill="#c9a84c" opacity="0.4"/>
+              <circle cx="170" cy="80" r="5" fill="#c9a84c" opacity="0.4"/>
+              <circle cx="190" cy="30" r="6" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity="0.5"/>
+              <!-- Small mountain -->
+              <path d="M150 140 L165 115 L180 140 Z" fill="rgba(15,43,70,0.06)" stroke="#ddd5c7" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
         <div id="products-grid" class="products-grid"></div>
       </div>
     </section>
 
     <!-- Machu Picchu Note -->
-    <section class="machu-note" id="machu-picchu-note">
+    <!-- Section ID prepared for future /machu-picchu-logistics page -->
+    <section class="machu-note" id="machu-picchu-logistics">
       <div class="container">
         <div class="machu-note-card">
           <h2 data-i18n="machu_title">Machu Picchu logistics need careful timing</h2>
@@ -359,7 +444,7 @@
         </div>
         <div class="footer-contact">
           <a href="https://wa.me/51986128511" class="footer-wa" target="_blank" rel="noopener" onclick="trackEvent('whatsapp_click', { location: 'footer' })">
-            <span data-i18n="footer_whatsapp">WhatsApp:</span> +51986128511
+            <span data-i18n="footer_whatsapp">WhatsApp:</span> +51 986128511
           </a>
           <p class="footer-email">
             <span data-i18n="footer_email_label">Email:</span> hello@cuscotravelhelper.com

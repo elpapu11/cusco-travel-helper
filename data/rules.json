@@ -8,7 +8,7 @@
     "logic": "OR",
     "severity": "info",
     "message_en": "Airport pickups usually require the flight number and a buffer for delays. Confirm if the driver waits inside or outside the terminal.",
-    "message_es": "Los recojos en el aeropuerto generalmente requieren el numero de vuelo y margen para retrasos. Confirma si el conductor espera dentro o fuera del terminal."
+    "message_es": "Los recojos en el aeropuerto generalmente requieren el número de vuelo y margen para retrasos. Confirma si el conductor espera dentro o fuera del terminal."
   },
   {
     "id": "train-connection",
@@ -23,7 +23,7 @@
     "logic": "OR",
     "severity": "warning",
     "message_en": "Train connections require precise timing. Allow at least 60 minutes buffer before departure. Verify your train station and departure time.",
-    "message_es": "Las conexiones de tren requieren precision de horarios. Deja al menos 60 minutos de margen antes de la salida. Verifica tu estacion y hora de salida."
+    "message_es": "Las conexiones de tren requieren precisión de horarios. Deja al menos 60 minutos de margen antes de la salida. Verifica tu estación y hora de salida."
   },
   {
     "id": "large-luggage",
@@ -33,7 +33,7 @@
     "logic": "OR",
     "severity": "warning",
     "message_en": "Large luggage may require a van or SUV. Sedans often have limited trunk space. Confirm vehicle capacity with the provider.",
-    "message_es": "Equipaje grande puede requerir una van o SUV. Los sedanes suelen tener espacio limitado en el maletero. Confirma la capacidad del vehiculo con el proveedor."
+    "message_es": "Equipaje grande puede requerir una van o SUV. Los sedanes suelen tener espacio limitado en el maletero. Confirma la capacidad del vehículo con el proveedor."
   },
   {
     "id": "group-travel",
@@ -46,7 +46,7 @@
     "logic": "OR",
     "severity": "info",
     "message_en": "Groups of 5 or more typically need a van or minivan. Confirm the exact vehicle type and number of seats with the provider.",
-    "message_es": "Grupos de 5 o mas personas generalmente necesitan una van o minivan. Confirma el tipo exacto de vehiculo y numero de asientos con el proveedor."
+    "message_es": "Grupos de 5 o más personas generalmente necesitan una van o minivan. Confirma el tipo exacto de vehículo y número de asientos con el proveedor."
   },
   {
     "id": "long-day-trip",
@@ -58,7 +58,7 @@
     "logic": "OR",
     "severity": "warning",
     "message_en": "Long day trips require early departure and proper acclimatization. Bring warm clothing, water and snacks. Confirm return time with the driver.",
-    "message_es": "Los tours de dia completo requieren salida temprana y buena aclimatacion. Lleva ropa abrigadora, agua y snacks. Confirma la hora de retorno con el conductor."
+    "message_es": "Los tours de día completo requieren salida temprana y buena aclimatación. Lleva ropa abrigadora, agua y snacks. Confirma la hora de retorno con el conductor."
   },
   {
     "id": "early-departure",
@@ -68,17 +68,7 @@
     "logic": "OR",
     "severity": "info",
     "message_en": "Early morning transfers may have limited vehicle availability. Book in advance and confirm the night before.",
-    "message_es": "Los traslados muy temprano pueden tener disponibilidad limitada de vehiculos. Reserva con anticipacion y confirma la noche anterior."
-  },
-  {
-    "id": "not-sure-destination",
-    "conditions": [
-      { "field": "destination", "value": "not-sure" }
-    ],
-    "logic": "OR",
-    "severity": "info",
-    "message_en": "You selected an unsure destination. We will help you define the best route in the WhatsApp conversation.",
-    "message_es": "Seleccionaste un destino no seguro. Te ayudaremos a definir la mejor ruta en la conversacion de WhatsApp."
+    "message_es": "Los traslados muy temprano pueden tener disponibilidad limitada de vehículos. Reserva con anticipación y confirma la noche anterior."
   },
   {
     "id": "other-destination",
@@ -89,7 +79,7 @@
     "logic": "OR",
     "severity": "info",
     "message_en": "Custom route selected. Please provide as much detail as possible in the additional notes so we can assist you accurately.",
-    "message_es": "Ruta personalizada seleccionada. Por favor proporciona todos los detalles posible en las notas adicionales para poder asistirte con precision."
+    "message_es": "Ruta personalizada seleccionada. Por favor proporciona todos los detalles posibles en las notas adicionales para poder asistirte con precisión."
   },
   {
     "id": "altitude-warning",
@@ -100,7 +90,7 @@
     "logic": "OR",
     "severity": "warning",
     "message_en": "This destination is at very high altitude. Make sure you have acclimatized in Cusco for at least 2 days before visiting.",
-    "message_es": "Este destino esta a muy gran altitud. Asegurate de haber aclimatado en Cusco al menos 2 dias antes de visitarlo."
+    "message_es": "Este destino está a muy gran altitud. Asegúrate de haber aclimatado en Cusco al menos 2 días antes de visitarlo."
   },
   {
     "id": "sacred-valley-general",
@@ -115,6 +105,6 @@
     "logic": "OR",
     "severity": "info",
     "message_en": "Sacred Valley routes are scenic but can be slow due to road conditions and traffic in small towns. Plan flexible timing.",
-    "message_es": "Las rutas del Valle Sagrado son escenicas pero pueden ser lentas por condiciones de carretera y trafico en pueblos pequenos. Planifica horarios flexibles."
+    "message_es": "Las rutas del Valle Sagrado son escénicas pero pueden ser lentas por condiciones de carretera y tráfico en pueblos pequeños. Planifica horarios flexibles."
   }
 ]

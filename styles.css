@@ -1,5 +1,5 @@
 /* ============================================
-   Cusco Travel Helper — Styles
+   Cusco Travel Helper v0.2 — Styles
    Premium, mobile-first, no external dependencies
    ============================================ */
 
@@ -60,7 +60,7 @@ a {
   text-decoration: none;
 }
 
-img {
+img, svg {
   max-width: 100%;
   height: auto;
   display: block;
@@ -192,6 +192,15 @@ section {
   opacity: 0.5;
 }
 
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -219,6 +228,19 @@ section {
   flex-direction: column;
   gap: 12px;
   max-width: 320px;
+}
+
+/* Hero visual SVG */
+.hero-visual {
+  display: none;
+  opacity: 0.9;
+}
+
+.hero-visual svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: 0 auto;
 }
 
 /* --- Buttons --- */
@@ -514,6 +536,8 @@ h2 {
   border: 1px solid var(--color-border);
   transition: box-shadow 0.2s, transform 0.2s;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .route-card:hover {
@@ -521,11 +545,26 @@ h2 {
   transform: translateY(-2px);
 }
 
+/* Route card visual decoration */
+.route-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(15, 43, 70, 0.03) 0%, transparent 60%);
+  border-bottom-left-radius: 100%;
+  pointer-events: none;
+}
+
 .route-card h3 {
   font-family: var(--font-heading);
   font-size: 1.05rem;
   color: var(--color-deep-blue);
   margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .route-meta {
@@ -578,6 +617,30 @@ h2 {
 /* --- Trip Checks --- */
 .trip-checks-section {
   background: var(--color-white);
+}
+
+.trip-checks-header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 8px;
+  align-items: start;
+}
+
+.trip-checks-text {
+  max-width: 640px;
+}
+
+.trip-checks-visual {
+  display: none;
+  opacity: 0.85;
+}
+
+.trip-checks-visual svg {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
 }
 
 .products-grid {
@@ -808,6 +871,10 @@ h2 {
     max-width: none;
   }
 
+  .hero-visual {
+    display: block;
+  }
+
   .trust-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -851,16 +918,33 @@ h2 {
   .btn-whatsapp-header {
     display: inline-block;
   }
+
+  .trip-checks-visual {
+    display: block;
+  }
+
+  .trip-checks-header {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 
 /* --- Desktop --- */
 @media (min-width: 900px) {
   .hero {
-    padding: 88px 0 96px;
+    padding: 72px 0 80px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
   }
 
   .hero h1 {
-    font-size: 2.9rem;
+    font-size: 2.6rem;
+  }
+
+  .hero-visual svg {
+    max-width: none;
   }
 
   .trust-grid {

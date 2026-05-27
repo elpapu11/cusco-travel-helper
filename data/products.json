@@ -2,73 +2,85 @@
   {
     "id": "machu-picchu-logistics",
     "name_en": "Machu Picchu Logistics Check",
-    "name_es": "Revision de Logistica para Machu Picchu",
+    "name_es": "Revisión logística de Machu Picchu",
     "price": "US$19",
-    "description_en": "For travelers who need help reviewing Machu Picchu ticket, train, bus, guide, timing, luggage and return logistics.",
-    "description_es": "Para viajeros que necesitan revisar entrada a Machu Picchu, tren, bus, guia, horarios, equipaje y logistica de retorno.",
+    "description_en": "Review your Machu Picchu ticket, circuit or route, train, bus, guide, luggage and return timing.",
+    "description_es": "Revisión de entrada a Machu Picchu, circuito o ruta, tren, bus, guía, equipaje y horario de retorno.",
     "includes_en": [
-      "Review of your current Machu Picchu entry ticket and circuit",
-      "Train schedule alignment with entry time",
-      "Bus and guide coordination notes",
-      "Luggage storage and return transport planning",
-      "List of questions to confirm with your agency"
+      "Ticket and entry time review",
+      "Circuit or route check",
+      "Train and bus timing review",
+      "Luggage and return logistics",
+      "Questions to confirm before your visit"
     ],
     "includes_es": [
-      "Revision de tu entrada a Machu Picchu y circuito actual",
-      "Alineacion de horario de tren con hora de entrada",
-      "Notas de coordinacion de bus y guia",
-      "Planificacion de almacenamiento de equipaje y transporte de retorno",
-      "Lista de preguntas para confirmar con tu agencia"
+      "Revisión de entrada y horario de ingreso",
+      "Revisión de circuito o ruta",
+      "Revisión de tiempos de tren y bus",
+      "Equipaje y logística de retorno",
+      "Preguntas que debes confirmar antes de la visita"
     ],
-    "whatsapp_intent_en": "Hi, I am interested in the Machu Picchu Logistics Check service. I would like to review my Machu Picchu ticket, train schedule and logistics before my trip.",
-    "whatsapp_intent_es": "Hola, estoy interesado en el servicio de Revision de Logistica para Machu Picchu. Me gustaria revisar mi entrada a Machu Picchu, horario de tren y logistica antes de mi viaje."
+    "cta_en": "Ask by WhatsApp",
+    "cta_es": "Consultar por WhatsApp",
+    "cta_secondary_en": "I want this review",
+    "cta_secondary_es": "Quiero esta revisión",
+    "whatsapp_message_en": "Hi, I'm interested in the Machu Picchu Logistics Check.\n\nMy details:\n- Visit date:\n- Machu Picchu ticket:\n- Circuit or route:\n- Entry time:\n- Train:\n- Hotel or staying area:\n- Main concern:\n\nPlease tell me what information you need to review my logistics.",
+    "whatsapp_message_es": "Hola, estoy interesado en la revisión logística de Machu Picchu.\n\nMis datos:\n- Fecha de visita:\n- Entrada a Machu Picchu:\n- Circuito o ruta:\n- Hora de ingreso:\n- Tren:\n- Hotel o zona de hospedaje:\n- Principal preocupación:\n\nPor favor, indícame qué información necesitas para revisar mi logística."
   },
   {
     "id": "tour-package-sanity",
     "name_en": "Tour Package Sanity Check",
-    "name_es": "Revision de Paquete Turistico",
+    "name_es": "Revisión de paquete turístico",
     "price": "US$19",
-    "description_en": "For travelers who already booked a package and want to understand what is included, what is missing and what questions to confirm.",
-    "description_es": "Para viajeros que ya compraron un paquete y quieren entender que incluye, que falta y que preguntas deben confirmar.",
+    "description_en": "Paste your tour package and we'll help you understand what is included, what is missing and what to confirm.",
+    "description_es": "Pega tu paquete turístico y te ayudamos a entender qué incluye, qué falta y qué deberías confirmar con tu agencia.",
     "includes_en": [
-      "Detailed review of your purchased itinerary",
-      "Identification of gaps or missing logistics",
-      "Timing analysis between activities",
-      "Clarity on inclusions and exclusions",
-      "Checklist of questions for your tour operator"
+      "Package inclusions review",
+      "Missing details checklist",
+      "Timing and logistics risks",
+      "Questions to send your agency",
+      "Free-time gaps detection"
     ],
     "includes_es": [
-      "Revision detallada de tu itinerario comprado",
-      "Identificacion de vacios o logisticas faltantes",
-      "Analisis de tiempos entre actividades",
-      "Claridad sobre inclusiones y exclusiones",
-      "Lista de preguntas para tu operador turistico"
+      "Revisión de inclusiones del paquete",
+      "Lista de datos faltantes",
+      "Riesgos de tiempo y logística",
+      "Preguntas para enviar a tu agencia",
+      "Detección de tiempos libres o vacíos"
     ],
-    "whatsapp_intent_en": "Hi, I already booked a tour package for Cusco and I would like a sanity check. I want to understand what is included, what might be missing, and what I should confirm with my agency.",
-    "whatsapp_intent_es": "Hola, ya reserve un paquete turistico para Cusco y me gustaria una revision. Quiero entender que incluye, que podria faltar y que deberia confirmar con mi agencia."
+    "cta_en": "Check my package",
+    "cta_es": "Revisar mi paquete",
+    "cta_secondary_en": "I want this check",
+    "cta_secondary_es": "Quiero esta revisión",
+    "whatsapp_message_en": "Hi, I'm interested in the Tour Package Sanity Check.\n\nI already booked or received a tour package and would like help understanding what is included, what is missing and what I should confirm.\n\nPackage or itinerary:\n[Paste here]",
+    "whatsapp_message_es": "Hola, estoy interesado en la revisión de paquete turístico.\n\nYa compré o recibí un paquete turístico y quisiera ayuda para entender qué incluye, qué falta y qué debería confirmar.\n\nPaquete o itinerario:\n[Pegar aquí]"
   },
   {
     "id": "full-cusco-plan",
     "name_en": "Full Cusco Plan",
-    "name_es": "Plan Completo para Cusco",
+    "name_es": "Plan completo para Cusco",
     "price": "From US$39",
-    "description_en": "For travelers who want a personalized day-by-day Cusco plan based on dates, pace, interests and logistics.",
-    "description_es": "Para viajeros que desean un plan personalizado dia por dia segun fechas, ritmo, intereses y logistica.",
+    "description_en": "A personalized day-by-day Cusco plan based on your dates, pace, interests and logistics.",
+    "description_es": "Un plan personalizado día por día para Cusco según tus fechas, ritmo, intereses y logística.",
     "includes_en": [
-      "Day-by-day itinerary structure",
-      "Route optimization based on your hotel location",
-      "Altitude and acclimatization pacing",
-      "Transport and timing recommendations",
-      "Machu Picchu logistics integration"
+      "Day-by-day plan",
+      "Activity order",
+      "Transfer needs",
+      "Machu Picchu checklist",
+      "Altitude-safe pacing"
     ],
     "includes_es": [
-      "Estructura de itinerario dia por dia",
-      "Optimizacion de rutas segun la ubicacion de tu hotel",
-      "Ritmo de aclimatacion y altitud",
-      "Recomendaciones de transporte y horarios",
-      "Integracion de logistica para Machu Picchu"
+      "Plan día por día",
+      "Orden recomendado de actividades",
+      "Necesidades de traslado",
+      "Checklist para Machu Picchu",
+      "Ritmo adaptado a la altura"
     ],
-    "whatsapp_intent_en": "Hi, I would like a personalized Full Cusco Plan. I need help structuring my days in Cusco considering my dates, interests and logistics.",
-    "whatsapp_intent_es": "Hola, me gustaria un Plan Completo personalizado para Cusco. Necesito ayuda para estructurar mis dias en Cusco considerando mis fechas, intereses y logistica."
+    "cta_en": "Ask for a custom plan",
+    "cta_es": "Consultar plan personalizado",
+    "cta_secondary_en": "I want a custom plan",
+    "cta_secondary_es": "Quiero un plan personalizado",
+    "whatsapp_message_en": "Hi, I'm interested in a custom Full Cusco Plan.\n\nMy dates are:\nMy interests are:\nMy main concern is:",
+    "whatsapp_message_es": "Hola, estoy interesado en un plan completo personalizado para Cusco.\n\nMis fechas son:\nMis intereses son:\nMi principal preocupación es:"
   }
 ]

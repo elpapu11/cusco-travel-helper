@@ -11,7 +11,7 @@
     "suggested_vehicle_en": "Sedan or SUV",
     "suggested_vehicle_es": "Sedan o SUV",
     "warning_en": "Traffic near the Plaza de Armas can delay arrival during peak hours. Have your hotel name and address ready.",
-    "warning_es": "El trafico cerca de la Plaza de Armas puede retrasar la llegada en horas pico. Ten a mano el nombre y direccion de tu hotel.",
+    "warning_es": "El tráfico cerca de la Plaza de Armas puede retrasar la llegada en horas pico. Ten a mano el nombre y dirección de tu hotel.",
     "tags": ["airport", "city"]
   },
   {
@@ -26,7 +26,7 @@
     "suggested_vehicle_en": "SUV or minivan",
     "suggested_vehicle_es": "SUV o minivan",
     "warning_en": "Altitude change and winding roads. If you just arrived, take it slow. Confirm your hotel in Ollantaytambo has vehicle access.",
-    "warning_es": "Cambio de altitud y carreteras sinuosas. Si acabas de llegar, tomalo con calma. Confirma que tu hotel en Ollantaytambo tenga acceso vehicular.",
+    "warning_es": "Cambio de altitud y carreteras sinuosas. Si acabas de llegar, tómalo con calma. Confirma que tu hotel en Ollantaytambo tenga acceso vehicular.",
     "tags": ["airport", "sacred-valley"]
   },
   {
@@ -41,7 +41,7 @@
     "suggested_vehicle_en": "SUV or minivan",
     "suggested_vehicle_es": "SUV o minivan",
     "warning_en": "The Sacred Valley covers several towns. Specify your exact destination. Urubamba is closer than Pisac from the airport.",
-    "warning_es": "El Valle Sagrado abarca varios pueblos. Especifica tu destino exacto. Urubamba esta mas cerca que Pisac desde el aeropuerto.",
+    "warning_es": "El Valle Sagrado abarca varios pueblos. Especifica tu destino exacto. Urubamba está más cerca que Pisac desde el aeropuerto.",
     "tags": ["airport", "sacred-valley"]
   },
   {
@@ -56,7 +56,7 @@
     "suggested_vehicle_en": "Sedan, SUV or minivan",
     "suggested_vehicle_es": "Sedan, SUV o minivan",
     "warning_en": "Common route for train connections. Allow extra time before your train departure. Road conditions are generally good.",
-    "warning_es": "Ruta comun para conexiones de tren. Dale tiempo extra antes de la salida de tu tren. Las condiciones de la carretera son generalmente buenas.",
+    "warning_es": "Ruta común para conexiones de tren. Dale tiempo extra antes de la salida de tu tren. Las condiciones de la carretera son generalmente buenas.",
     "tags": ["sacred-valley", "train"]
   },
   {
@@ -64,14 +64,14 @@
     "origin": "Cusco Center",
     "destination": "Poroy Station",
     "name_en": "Cusco to Poroy Station",
-    "name_es": "Cusco a Estacion de Poroy",
+    "name_es": "Cusco a Estación de Poroy",
     "estimated_time_en": "20 to 35 minutes",
     "estimated_time_es": "20 a 35 minutos",
     "logistics_level": "easy",
     "suggested_vehicle_en": "Sedan or SUV",
     "suggested_vehicle_es": "Sedan o SUV",
     "warning_en": "Arrive at least 30 minutes before train departure. Poroy is smaller than Wanchaq; confirm your train leaves from here.",
-    "warning_es": "Llega al menos 30 minutos antes de la salida del tren. Poroy es mas pequena que Wanchaq; confirma que tu tren salga de aqui.",
+    "warning_es": "Llega al menos 30 minutos antes de la salida del tren. Poroy es más pequeña que Wanchaq; confirma que tu tren salga de aquí.",
     "tags": ["train", "city"]
   },
   {
@@ -86,7 +86,7 @@
     "suggested_vehicle_en": "Sedan, SUV or minivan",
     "suggested_vehicle_es": "Sedan, SUV o minivan",
     "warning_en": "Specify the exact town. Pisac and Urubamba are in opposite directions from Cusco. Plan your day-trip timing carefully.",
-    "warning_es": "Especifica el pueblo exacto. Pisac y Urubamba estan en direcciones opuestas desde Cusco. Planifica bien los horarios de tu tour de un dia.",
+    "warning_es": "Especifica el pueblo exacto. Pisac y Urubamba están en direcciones opuestas desde Cusco. Planifica bien los horarios de tu tour de un día.",
     "tags": ["sacred-valley", "day-trip"]
   },
   {
@@ -94,14 +94,14 @@
     "origin": "Cusco Center",
     "destination": "Hidroelectrica",
     "name_en": "Cusco to Hidroelectrica",
-    "name_es": "Cusco a Hidroelectrica",
+    "name_es": "Cusco a Hidroeléctrica",
     "estimated_time_en": "6 to 7 hours",
     "estimated_time_es": "6 a 7 horas",
     "logistics_level": "high",
     "suggested_vehicle_en": "Minivan or van for groups",
     "suggested_vehicle_es": "Minivan o van para grupos",
     "warning_en": "Long journey on winding mountain roads. Not recommended if you are not acclimatized. This route is often used for budget Machu Picchu access via Santa Teresa.",
-    "warning_es": "Viaje largo por carreteras montanosas sinuosas. No recomendado si no estas aclimatado. Esta ruta se usa frecuentemente para acceder a Machu Picchu por Santa Teresa con bajo presupuesto.",
+    "warning_es": "Viaje largo por carreteras montañosas sinuosas. No recomendado si no estás aclimatado. Esta ruta se usa frecuentemente para acceder a Machu Picchu por Santa Teresa con bajo presupuesto.",
     "tags": ["long-trip", "machu-picchu"]
   },
   {
@@ -116,7 +116,7 @@
     "suggested_vehicle_en": "SUV or minivan",
     "suggested_vehicle_es": "SUV o minivan",
     "warning_en": "Very early departure recommended. High altitude trek after the drive. Bring warm layers. The trailhead is at Soraypampa.",
-    "warning_es": "Se recomienda salida muy temprana. Trek de gran altitud despues del viaje. Lleva ropa de abrigo. El inicio del sendero esta en Soraypampa.",
+    "warning_es": "Se recomienda salida muy temprana. Trek de gran altitud después del viaje. Lleva ropa de abrigo. El inicio del sendero está en Soraypampa.",
     "tags": ["day-trip", "trek", "high-altitude"]
   },
   {
@@ -124,14 +124,14 @@
     "origin": "Cusco Center",
     "destination": "Rainbow Mountain",
     "name_en": "Cusco to Rainbow Mountain",
-    "name_es": "Cusco a Montana de Colores",
+    "name_es": "Cusco a Montaña de Colores",
     "estimated_time_en": "3 to 3.5 hours each way",
     "estimated_time_es": "3 a 3.5 horas por trayecto",
     "logistics_level": "high",
     "suggested_vehicle_en": "SUV or minivan",
     "suggested_vehicle_es": "SUV o minivan",
     "warning_en": "Extreme altitude. Depart Cusco around 4:00 AM. The trailhead is at Cusipata or Phulawasipata. Check weather conditions.",
-    "warning_es": "Altitud extrema. Salida de Cusco alrededor de las 4:00 AM. El inicio del sendero esta en Cusipata o Phulawasipata. Revisa las condiciones climaticas.",
+    "warning_es": "Altitud extrema. Salida de Cusco alrededor de las 4:00 AM. El inicio del sendero está en Cusipata o Phulawasipata. Revisa las condiciones climáticas.",
     "tags": ["day-trip", "trek", "high-altitude"]
   }
 ]

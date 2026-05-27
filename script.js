@@ -1,13 +1,14 @@
 /**
  * Cusco Travel Helper — Main JavaScript
  * Pure JS, no frameworks, no build step
+ * MVP v0.2 — Trip checks, visuals, corrected Spanish
  */
 
 // ============================================
 // Configuration — CHANGE THESE VALUES
 // ============================================
 
-/** WhatsApp number placeholder — replace with real number when ready */
+/** WhatsApp number — currently set to the real number */
 const WHATSAPP_NUMBER = "51986128511";
 
 /** Google Analytics 4 ID placeholder — replace with real ID when ready */
@@ -21,19 +22,19 @@ const translations = {
   // Meta
   meta_title: {
     en: "Cusco Travel Helper | Private Transfer Quotes & Trip Logistics",
-    es: "Cusco Travel Helper | Cotizaciones de Traslados y Logistica de Viaje"
+    es: "Cusco Travel Helper | Cotizaciones de Traslados y Logística de Viaje"
   },
   meta_description: {
     en: "Request private transfer quotes in Cusco for the airport, Sacred Valley, Ollantaytambo and train stations. Get itinerary and Machu Picchu logistics help by WhatsApp.",
-    es: "Solicita cotizaciones de traslados privados en Cusco para el aeropuerto, Valle Sagrado, Ollantaytambo y estaciones de tren. Recibe ayuda de logistica e itinerario por WhatsApp."
+    es: "Solicita cotizaciones de traslados privados en Cusco para el aeropuerto, Valle Sagrado, Ollantaytambo y estaciones de tren. Recibe ayuda de logística e itinerario por WhatsApp."
   },
   og_title: {
     en: "Cusco Travel Helper | Private Transfer Quotes & Trip Logistics",
-    es: "Cusco Travel Helper | Cotizaciones de Traslados y Logistica de Viaje"
+    es: "Cusco Travel Helper | Cotizaciones de Traslados y Logística de Viaje"
   },
   og_description: {
     en: "Request private transfer quotes in Cusco for the airport, Sacred Valley, Ollantaytambo and train stations. Get itinerary and Machu Picchu logistics help by WhatsApp.",
-    es: "Solicita cotizaciones de traslados privados en Cusco para el aeropuerto, Valle Sagrado, Ollantaytambo y estaciones de tren. Recibe ayuda de logistica e itinerario por WhatsApp."
+    es: "Solicita cotizaciones de traslados privados en Cusco para el aeropuerto, Valle Sagrado, Ollantaytambo y estaciones de tren. Recibe ayuda de logística e itinerario por WhatsApp."
   },
 
   // Brand
@@ -52,11 +53,15 @@ const translations = {
   // Hero
   hero_title: {
     en: "Private transfers in Cusco, made easier",
-    es: "Traslados privados en Cusco, mas faciles de coordinar"
+    es: "Traslados privados en Cusco, más fáciles de coordinar"
   },
   hero_subtitle: {
     en: "Get a quick route quote for the airport, Sacred Valley, Ollantaytambo, train stations and day trips. Send your request by WhatsApp.",
-    es: "Solicita una cotizacion rapida para aeropuerto, Valle Sagrado, Ollantaytambo, estaciones de tren y tours de dia completo. Envia tu solicitud por WhatsApp."
+    es: "Solicita una cotización rápida para el aeropuerto, el Valle Sagrado, Ollantaytambo, estaciones de tren y tours de día completo. Envía tu solicitud por WhatsApp."
+  },
+  hero_svg_alt: {
+    en: "Abstract route map showing Cusco, the airport, Sacred Valley and Ollantaytambo",
+    es: "Mapa de ruta abstracto con Cusco, el aeropuerto, el Valle Sagrado y Ollantaytambo"
   },
   cta_transfer_quote: { en: "Get a transfer quote", es: "Cotizar traslado" },
   cta_check_itinerary: { en: "Check my itinerary", es: "Revisar mi itinerario" },
@@ -65,10 +70,10 @@ const translations = {
   trust_1: { en: "Reference quotes, not final prices", es: "Cotizaciones referenciales, no precios finales" },
   trust_2: { en: "WhatsApp request with clear trip details", es: "Solicitud por WhatsApp con datos claros del viaje" },
   trust_3: { en: "Airport, Sacred Valley and train station routes", es: "Rutas de aeropuerto, Valle Sagrado y estaciones de tren" },
-  trust_4: { en: "Planning assistance, not an official ticket seller", es: "Asistencia de planificacion, no venta oficial de tickets" },
+  trust_4: { en: "Planning assistance, not an official ticket seller", es: "Asistencia de planificación, no venta oficial de tickets" },
 
   // Form
-  form_title: { en: "Request a private transfer quote", es: "Solicitar una cotizacion de traslado privado" },
+  form_title: { en: "Request a private transfer quote", es: "Solicitar una cotización de traslado privado" },
   form_intro: {
     en: "Fill in your trip details and we will prepare a clear WhatsApp request for you. Prices are referential and must be confirmed by a local provider.",
     es: "Completa los detalles de tu viaje y prepararemos una solicitud clara por WhatsApp. Los precios son referenciales y deben ser confirmados por un proveedor local."
@@ -76,25 +81,32 @@ const translations = {
 
   // Form labels
   label_lang: { en: "Language preference", es: "Preferencia de idioma" },
+  label_trip_type: { en: "What best describes your trip? (optional)", es: "¿Qué describe mejor tu viaje? (opcional)" },
   label_origin: { en: "Origin", es: "Origen" },
   label_destination: { en: "Destination", es: "Destino" },
   label_date: { en: "Date", es: "Fecha" },
   label_time: { en: "Time", es: "Hora" },
-  label_travelers: { en: "Number of travelers", es: "Numero de viajeros" },
+  label_travelers: { en: "Number of travelers", es: "Número de viajeros" },
   label_luggage: { en: "Luggage", es: "Equipaje" },
-  label_vehicle: { en: "Vehicle preference", es: "Preferencia de vehiculo" },
+  label_vehicle: { en: "Vehicle preference", es: "Preferencia de vehículo" },
   label_stops: { en: "Stops needed", es: "Paradas necesarias" },
   label_pickup: { en: "Pickup details", es: "Detalles de recojo" },
-  label_flight: { en: "Flight or train number (optional)", es: "Numero de vuelo o tren (opcional)" },
-  label_concern: { en: "Main concern", es: "Principal preocupacion" },
+  label_flight: { en: "Flight or train number (optional)", es: "Número de vuelo o tren (opcional)" },
+  label_concern: { en: "Main concern", es: "Principal preocupación" },
   label_notes: { en: "Additional notes", es: "Notas adicionales" },
 
   // Options
   placeholder_select: { en: "Select...", es: "Seleccionar..." },
-  opt_english: { en: "English", es: "Ingles" },
-  opt_spanish: { en: "Spanish", es: "Espanol" },
+  placeholder_select_trip_type: { en: "Select...", es: "Seleccionar..." },
+  opt_english: { en: "English", es: "Inglés" },
+  opt_spanish: { en: "Spanish", es: "Español" },
   opt_other: { en: "Other", es: "Otro" },
-  opt_small_bags: { en: "Small bags only", es: "Solo bolsos pequenos" },
+  opt_transfer_only: { en: "I need a transfer", es: "Necesito un traslado" },
+  opt_machu_picchu_booked: { en: "I already booked Machu Picchu", es: "Ya compré Machu Picchu" },
+  opt_package_booked: { en: "I already booked a tour package", es: "Ya compré un paquete turístico" },
+  opt_still_planning: { en: "I'm still planning my itinerary", es: "Aún estoy planificando mi itinerario" },
+  opt_not_sure_yet: { en: "I'm not sure yet", es: "No estoy seguro todavía" },
+  opt_small_bags: { en: "Small bags only", es: "Solo bolsos pequeños" },
   opt_medium_luggage: { en: "Medium luggage", es: "Equipaje mediano" },
   opt_large_luggage: { en: "Large luggage", es: "Equipaje grande" },
   opt_not_sure: { en: "Not sure", es: "No estoy seguro" },
@@ -104,19 +116,19 @@ const translations = {
   opt_with_stops: { en: "With stops", es: "Con paradas" },
   opt_airport: { en: "Airport", es: "Aeropuerto" },
   opt_hotel: { en: "Hotel", es: "Hotel" },
-  opt_train_station: { en: "Train station", es: "Estacion de tren" },
-  opt_address: { en: "Address to confirm", es: "Direccion a confirmar" },
+  opt_train_station: { en: "Train station", es: "Estación de tren" },
+  opt_address: { en: "Address to confirm", es: "Dirección a confirmar" },
   opt_price: { en: "Price", es: "Precio" },
   opt_timing: { en: "Timing", es: "Horarios" },
   opt_luggage_concern: { en: "Luggage", es: "Equipaje" },
   opt_safety: { en: "Safety", es: "Seguridad" },
-  opt_train: { en: "Train connection", es: "Conexion de tren" },
-  opt_kids: { en: "Traveling with kids", es: "Viajando con ninos" },
+  opt_train: { en: "Train connection", es: "Conexión de tren" },
+  opt_kids: { en: "Traveling with kids", es: "Viajando con niños" },
   opt_group: { en: "Traveling in a group", es: "Viajando en grupo" },
   opt_other_concern: { en: "Other", es: "Otro" },
 
   // Buttons
-  btn_generate_quote: { en: "Generate my quote request", es: "Generar mi solicitud de cotizacion" },
+  btn_generate_quote: { en: "Generate my quote request", es: "Generar mi solicitud de cotización" },
   btn_reset: { en: "Clear form", es: "Limpiar formulario" },
   btn_send_whatsapp: { en: "Send request by WhatsApp", es: "Enviar solicitud por WhatsApp" },
   btn_copy: { en: "Copy request", es: "Copiar solicitud" },
@@ -124,103 +136,102 @@ const translations = {
   // Result
   result_title: { en: "Your transfer request summary", es: "Resumen de tu solicitud de traslado" },
   result_label_route: { en: "Route", es: "Ruta" },
-  result_label_vehicle: { en: "Suggested vehicle", es: "Vehiculo sugerido" },
+  result_label_vehicle: { en: "Suggested vehicle", es: "Vehículo sugerido" },
   result_label_time: { en: "Estimated time", es: "Tiempo estimado" },
-  result_label_logistics: { en: "Logistics level", es: "Nivel logistico" },
+  result_label_logistics: { en: "Logistics level", es: "Nivel logístico" },
+  result_label_trip_type: { en: "Trip type", es: "Tipo de viaje" },
   result_warnings_title: { en: "Important notes", es: "Notas importantes" },
-  result_confirm_title: { en: "What to confirm with the provider", es: "Que confirmar con el proveedor" },
+  result_confirm_title: { en: "What to confirm with the provider", es: "Qué confirmar con el proveedor" },
   result_disclaimer_text: {
     en: "Reference price must be confirmed by a local provider. This is not a confirmed booking.",
     es: "El precio referencial debe ser confirmado por un proveedor local. Esto no es una reserva confirmada."
   },
-  level_easy: { en: "Easy", es: "Facil" },
+  level_easy: { en: "Easy", es: "Fácil" },
   level_moderate: { en: "Moderate", es: "Moderado" },
   level_high: { en: "High", es: "Alto" },
 
   // Confirm checklist
-  confirm_vehicle: { en: "Vehicle type, model and capacity", es: "Tipo, modelo y capacidad del vehiculo" },
+  confirm_vehicle: { en: "Vehicle type, model and capacity", es: "Tipo, modelo y capacidad del vehículo" },
   confirm_driver: { en: "Driver name, license and contact", es: "Nombre del conductor, licencia y contacto" },
   confirm_pickup: { en: "Exact pickup point and protocol", es: "Punto exacto de recojo y protocolo" },
   confirm_price: { en: "Final price including tolls and waiting time", es: "Precio final incluyendo peajes y tiempo de espera" },
-  confirm_insurance: { en: "Insurance coverage for the vehicle and passengers", es: "Cobertura de seguro para vehiculo y pasajeros" },
+  confirm_insurance: { en: "Insurance coverage for the vehicle and passengers", es: "Cobertura de seguro para vehículo y pasajeros" },
   confirm_date: { en: "Date, time and buffer for delays", es: "Fecha, hora y margen para retrasos" },
 
   // Routes section
   routes_title: { en: "Popular routes", es: "Rutas populares" },
   routes_intro: {
     en: "Click any route to prefill the quote form with origin and destination.",
-    es: "Haz clic en cualquier ruta para precargar el formulario de cotizacion con origen y destino."
+    es: "Haz clic en cualquier ruta para precargar el formulario de cotización con origen y destino."
   },
   ask_route_btn: { en: "Ask about this route", es: "Consultar esta ruta" },
 
   // Trip checks
-  trip_checks_title: { en: "Already booked a tour or package?", es: "Ya compraste un tour o paquete?" },
+  trip_checks_title: { en: "Need help checking your Machu Picchu plan or tour package?", es: "¿Necesitas revisar tu plan de Machu Picchu o tu paquete turístico?" },
   trip_checks_intro: {
-    en: "If you already have a Cusco or Machu Picchu package, we can help you understand timing, inclusions, free-time gaps and logistics questions to confirm with your agency.",
-    es: "Si ya tienes un paquete para Cusco o Machu Picchu, podemos ayudarte a revisar horarios, inclusiones, tiempos libres y preguntas logisticas que deberias confirmar con tu agencia."
+    en: "If you already have Machu Picchu tickets, train schedules or a tour package, we can help you review timing, inclusions, logistics risks and questions to confirm before your trip.",
+    es: "Si ya tienes entradas a Machu Picchu, horarios de tren o un paquete turístico, podemos ayudarte a revisar tiempos, inclusiones, riesgos logísticos y preguntas que deberías confirmar antes del viaje."
   },
-  product_ask_whatsapp: { en: "Ask by WhatsApp", es: "Consultar por WhatsApp" },
-  product_want_this: { en: "I want this review", es: "Quiero esta revision" },
   product_includes: { en: "Includes:", es: "Incluye:" },
 
   // Machu Picchu note
-  machu_title: { en: "Machu Picchu logistics need careful timing", es: "La logistica de Machu Picchu requiere buena coordinacion" },
+  machu_title: { en: "Machu Picchu logistics need careful timing", es: "La logística de Machu Picchu requiere buena coordinación" },
   machu_text: {
     en: "Machu Picchu requires careful coordination between entry time, circuit or route, train, bus, guide, luggage and return transport. This tool does not sell official tickets or guarantee availability.",
-    es: "Machu Picchu requiere coordinar entrada, circuito o ruta, tren, bus, guia, equipaje y transporte de retorno. Esta herramienta no vende tickets oficiales ni garantiza disponibilidad."
+    es: "Machu Picchu requiere coordinar entrada, circuito o ruta, tren, bus, guía, equipaje y transporte de retorno. Esta herramienta no vende tickets oficiales ni garantiza disponibilidad."
   },
-  cta_machu_check: { en: "Check my Machu Picchu logistics", es: "Revisar mi logistica de Machu Picchu" },
+  cta_machu_check: { en: "Check my Machu Picchu logistics", es: "Revisar mi logística de Machu Picchu" },
 
   // FAQ
   faq_title: { en: "Frequently asked questions", es: "Preguntas frecuentes" },
-  faq_q1: { en: "Do you sell Machu Picchu tickets?", es: "Venden entradas a Machu Picchu?" },
+  faq_q1: { en: "Do you sell Machu Picchu tickets?", es: "¿Venden entradas a Machu Picchu?" },
   faq_a1: {
     en: "No. We do not sell Machu Picchu entry tickets, train tickets or bus tickets. We help you review your logistics and prepare clear questions for your agency or official providers.",
-    es: "No. No vendemos entradas a Machu Picchu, tickets de tren ni tickets de bus. Te ayudamos a revisar tu logistica y preparar preguntas claras para tu agencia o proveedores oficiales."
+    es: "No. No vendemos entradas a Machu Picchu, tickets de tren ni tickets de bus. Te ayudamos a revisar tu logística y preparar preguntas claras para tu agencia o proveedores oficiales."
   },
-  faq_q2: { en: "Are transfer prices guaranteed?", es: "Los precios de traslado estan garantizados?" },
+  faq_q2: { en: "Are transfer prices guaranteed?", es: "¿Los precios de traslado están garantizados?" },
   faq_a2: {
     en: "No. All prices shown or referenced are indicative and must be confirmed by a local transport provider. Final rates depend on vehicle type, route conditions, fuel prices and demand.",
-    es: "No. Todos los precios mostrados o referenciados son indicativos y deben ser confirmados por un proveedor de transporte local. Las tarifas finales dependen del tipo de vehiculo, condiciones de la ruta, precio de combustible y demanda."
+    es: "No. Todos los precios mostrados o referenciados son indicativos y deben ser confirmados por un proveedor de transporte local. Las tarifas finales dependen del tipo de vehículo, condiciones de la ruta, precio de combustible y demanda."
   },
-  faq_q3: { en: "Is this an official transport company?", es: "Son una empresa oficial de transporte?" },
+  faq_q3: { en: "Is this an official transport company?", es: "¿Son una empresa oficial de transporte?" },
   faq_a3: {
     en: "No. Cusco Travel Helper is an independent trip assistance tool. We are not a transport operator, travel agency or government entity. We help you structure your route request and connect with local providers.",
     es: "No. Cusco Travel Helper es una herramienta independiente de asistencia para viajes. No somos un operador de transporte, agencia de viajes ni entidad gubernamental. Te ayudamos a estructurar tu solicitud de ruta y conectar con proveedores locales."
   },
-  faq_q4: { en: "Can I book directly here?", es: "Puedo reservar directamente aqui?" },
+  faq_q4: { en: "Can I book directly here?", es: "¿Puedo reservar directamente aquí?" },
   faq_a4: {
     en: "You cannot complete a confirmed booking on this site. You can generate a detailed WhatsApp request and continue the conversation directly with a provider. Transport is confirmed only after a provider accepts the request.",
-    es: "No puedes completar una reserva confirmada en este sitio. Puedes generar una solicitud detallada por WhatsApp y continuar la conversacion directamente con un proveedor. El transporte solo se confirma cuando un proveedor acepta la solicitud."
+    es: "No puedes completar una reserva confirmada en este sitio. Puedes generar una solicitud detallada por WhatsApp y continuar la conversación directamente con un proveedor. El transporte solo se confirma cuando un proveedor acepta la solicitud."
   },
-  faq_q5: { en: "What happens after I send the WhatsApp request?", es: "Que pasa despues de enviar la solicitud por WhatsApp?" },
+  faq_q5: { en: "What happens after I send the WhatsApp request?", es: "¿Qué pasa después de enviar la solicitud por WhatsApp?" },
   faq_a5: {
     en: "A local provider will review your trip details and respond with availability, final price and vehicle information. We recommend confirming vehicle type, driver license, insurance and pickup protocol before agreeing.",
-    es: "Un proveedor local revisara los detalles de tu viaje y respondera con disponibilidad, precio final e informacion del vehiculo. Recomendamos confirmar tipo de vehiculo, licencia del conductor, seguro y protocolo de recojo antes de acordar."
+    es: "Un proveedor local revisará los detalles de tu viaje y responderá con disponibilidad, precio final e información del vehículo. Recomendamos confirmar tipo de vehículo, licencia del conductor, seguro y protocolo de recojo antes de acordar."
   },
-  faq_q6: { en: "Can you help if I already booked a tour package?", es: "Pueden ayudarme si ya compre un paquete turistico?" },
+  faq_q6: { en: "Can you help if I already booked a tour package?", es: "¿Pueden ayudarme si ya compré un paquete turístico?" },
   faq_a6: {
     en: "Yes. Our Trip Check services help you review your itinerary, identify missing logistics and prepare questions for your tour operator. We do not replace your agency, we add clarity.",
-    es: "Si. Nuestros servicios de Revision de Viaje te ayudan a revisar tu itinerario, identificar logisticas faltantes y preparar preguntas para tu operador turistico. No reemplazamos a tu agencia, agregamos claridad."
+    es: "Sí. Nuestros servicios de Revisión de Viaje te ayudan a revisar tu itinerario, identificar logísticas faltantes y preparar preguntas para tu operador turístico. No reemplazamos a tu agencia, agregamos claridad."
   },
-  faq_q7: { en: "Should I sleep in Cusco or Ollantaytambo before Machu Picchu?", es: "Conviene dormir en Cusco u Ollantaytambo antes de Machu Picchu?" },
+  faq_q7: { en: "Should I sleep in Cusco or Ollantaytambo before Machu Picchu?", es: "¿Conviene dormir en Cusco u Ollantaytambo antes de Machu Picchu?" },
   faq_a7: {
     en: "It depends on your train schedule. Ollantaytambo is closer to Machu Picchu and useful for early trains. Cusco offers more accommodation and dining options. We can review your specific itinerary to recommend the best option.",
-    es: "Depende de tu horario de tren. Ollantaytambo esta mas cerca de Machu Picchu y es util para trenes tempranos. Cusco ofrece mas opciones de alojamiento y restaurantes. Podemos revisar tu itinerario especifico para recomendarte la mejor opcion."
+    es: "Depende de tu horario de tren. Ollantaytambo está más cerca de Machu Picchu y es útil para trenes tempranos. Cusco ofrece más opciones de alojamiento y restaurantes. Podemos revisar tu itinerario específico para recomendarte la mejor opción."
   },
-  faq_q8: { en: "Can I request a private driver?", es: "Puedo solicitar conductor privado?" },
+  faq_q8: { en: "Can I request a private driver?", es: "¿Puedo solicitar conductor privado?" },
   faq_a8: {
     en: "Yes. You can specify your preference in the transfer form. Select your vehicle type and mention any specific needs in the additional notes. The provider will confirm driver availability.",
-    es: "Si. Puedes especificar tu preferencia en el formulario de traslado. Selecciona tu tipo de vehiculo y menciona necesidades especificas en las notas adicionales. El proveedor confirmara disponibilidad de conductor."
+    es: "Sí. Puedes especificar tu preferencia en el formulario de traslado. Selecciona tu tipo de vehículo y menciona necesidades específicas en las notas adicionales. El proveedor confirmará disponibilidad de conductor."
   },
-  faq_q9: { en: "Do you work with verified operators?", es: "Trabajan con operadores verificados?" },
+  faq_q9: { en: "Do you work with verified operators?", es: "¿Trabajan con operadores verificados?" },
   faq_a9: {
     en: "We are currently validating local providers. Always confirm vehicle, driver, license, insurance and final price before booking. We do not guarantee the quality of any specific operator.",
-    es: "Actualmente estamos validando proveedores locales. Antes de reservar, confirma vehiculo, conductor, licencia, seguro y precio final. No garantizamos la calidad de ningun operador especifico."
+    es: "Actualmente estamos validando proveedores locales. Antes de reservar, confirma vehículo, conductor, licencia, seguro y precio final. No garantizamos la calidad de ningún operador específico."
   },
 
   // Footer
-  footer_tagline: { en: "Private transfers and travel logistics in Cusco, made easier.", es: "Traslados privados y logistica de viaje en Cusco, mas facil." },
+  footer_tagline: { en: "Private transfers and travel logistics in Cusco, made easier.", es: "Traslados privados y logística de viaje en Cusco, más fácil." },
   footer_whatsapp: { en: "WhatsApp:", es: "WhatsApp:" },
   footer_email_label: { en: "Email:", es: "Correo:" },
   footer_disclaimer: {
@@ -295,13 +306,18 @@ function translatePage() {
     }
   });
 
+  // SVG title elements with data-i18n-alt
+  document.querySelectorAll("[data-i18n-alt]").forEach(svg => {
+    const key = svg.getAttribute("data-i18n-alt");
+    if (translations[key] && translations[key][currentLang]) {
+      const titleEl = svg.querySelector("title");
+      if (titleEl) titleEl.textContent = translations[key][currentLang];
+    }
+  });
+
   // Re-render dynamic content
   renderRoutes();
   renderProducts();
-  if (lastWhatsAppMessage) {
-    // If a result is showing, we do not re-render it dynamically
-    // The user can regenerate if needed after language switch
-  }
 }
 
 // ============================================
@@ -321,7 +337,7 @@ const routesDataFallback = [
     suggested_vehicle_en: "Sedan or SUV",
     suggested_vehicle_es: "Sedan o SUV",
     warning_en: "Traffic near the Plaza de Armas can delay arrival during peak hours. Have your hotel name and address ready.",
-    warning_es: "El trafico cerca de la Plaza de Armas puede retrasar la llegada en horas pico. Ten a mano el nombre y direccion de tu hotel.",
+    warning_es: "El tráfico cerca de la Plaza de Armas puede retrasar la llegada en horas pico. Ten a mano el nombre y dirección de tu hotel.",
     tags: ["airport", "city"]
   },
   {
@@ -336,7 +352,7 @@ const routesDataFallback = [
     suggested_vehicle_en: "SUV or minivan",
     suggested_vehicle_es: "SUV o minivan",
     warning_en: "Altitude change and winding roads. If you just arrived, take it slow. Confirm your hotel in Ollantaytambo has vehicle access.",
-    warning_es: "Cambio de altitud y carreteras sinuosas. Si acabas de llegar, tomalo con calma. Confirma que tu hotel en Ollantaytambo tenga acceso vehicular.",
+    warning_es: "Cambio de altitud y carreteras sinuosas. Si acabas de llegar, tómalo con calma. Confirma que tu hotel en Ollantaytambo tenga acceso vehicular.",
     tags: ["airport", "sacred-valley"]
   },
   {
@@ -351,7 +367,7 @@ const routesDataFallback = [
     suggested_vehicle_en: "SUV or minivan",
     suggested_vehicle_es: "SUV o minivan",
     warning_en: "The Sacred Valley covers several towns. Specify your exact destination. Urubamba is closer than Pisac from the airport.",
-    warning_es: "El Valle Sagrado abarca varios pueblos. Especifica tu destino exacto. Urubamba esta mas cerca que Pisac desde el aeropuerto.",
+    warning_es: "El Valle Sagrado abarca varios pueblos. Especifica tu destino exacto. Urubamba está más cerca que Pisac desde el aeropuerto.",
     tags: ["airport", "sacred-valley"]
   },
   {
@@ -366,7 +382,7 @@ const routesDataFallback = [
     suggested_vehicle_en: "Sedan, SUV or minivan",
     suggested_vehicle_es: "Sedan, SUV o minivan",
     warning_en: "Common route for train connections. Allow extra time before your train departure. Road conditions are generally good.",
-    warning_es: "Ruta comun para conexiones de tren. Dale tiempo extra antes de la salida de tu tren. Las condiciones de la carretera son generalmente buenas.",
+    warning_es: "Ruta común para conexiones de tren. Dale tiempo extra antes de la salida de tu tren. Las condiciones de la carretera son generalmente buenas.",
     tags: ["sacred-valley", "train"]
   },
   {
@@ -374,14 +390,14 @@ const routesDataFallback = [
     origin: "Cusco Center",
     destination: "Poroy Station",
     name_en: "Cusco to Poroy Station",
-    name_es: "Cusco a Estacion de Poroy",
+    name_es: "Cusco a Estación de Poroy",
     estimated_time_en: "20 to 35 minutes",
     estimated_time_es: "20 a 35 minutos",
     logistics_level: "easy",
     suggested_vehicle_en: "Sedan or SUV",
     suggested_vehicle_es: "Sedan o SUV",
     warning_en: "Arrive at least 30 minutes before train departure. Poroy is smaller than Wanchaq; confirm your train leaves from here.",
-    warning_es: "Llega al menos 30 minutos antes de la salida del tren. Poroy es mas pequena que Wanchaq; confirma que tu tren salga de aqui.",
+    warning_es: "Llega al menos 30 minutos antes de la salida del tren. Poroy es más pequeña que Wanchaq; confirma que tu tren salga de aquí.",
     tags: ["train", "city"]
   },
   {
@@ -396,7 +412,7 @@ const routesDataFallback = [
     suggested_vehicle_en: "Sedan, SUV or minivan",
     suggested_vehicle_es: "Sedan, SUV o minivan",
     warning_en: "Specify the exact town. Pisac and Urubamba are in opposite directions from Cusco. Plan your day-trip timing carefully.",
-    warning_es: "Especifica el pueblo exacto. Pisac y Urubamba estan en direcciones opuestas desde Cusco. Planifica bien los horarios de tu tour de un dia.",
+    warning_es: "Especifica el pueblo exacto. Pisac y Urubamba están en direcciones opuestas desde Cusco. Planifica bien los horarios de tu tour de un día.",
     tags: ["sacred-valley", "day-trip"]
   },
   {
@@ -404,14 +420,14 @@ const routesDataFallback = [
     origin: "Cusco Center",
     destination: "Hidroelectrica",
     name_en: "Cusco to Hidroelectrica",
-    name_es: "Cusco a Hidroelectrica",
+    name_es: "Cusco a Hidroeléctrica",
     estimated_time_en: "6 to 7 hours",
     estimated_time_es: "6 a 7 horas",
     logistics_level: "high",
     suggested_vehicle_en: "Minivan or van for groups",
     suggested_vehicle_es: "Minivan o van para grupos",
     warning_en: "Long journey on winding mountain roads. Not recommended if you are not acclimatized. This route is often used for budget Machu Picchu access via Santa Teresa.",
-    warning_es: "Viaje largo por carreteras montanosas sinuosas. No recomendado si no estas aclimatado. Esta ruta se usa frecuentemente para acceder a Machu Picchu por Santa Teresa con bajo presupuesto.",
+    warning_es: "Viaje largo por carreteras montañosas sinuosas. No recomendado si no estás aclimatado. Esta ruta se usa frecuentemente para acceder a Machu Picchu por Santa Teresa con bajo presupuesto.",
     tags: ["long-trip", "machu-picchu"]
   },
   {
@@ -426,7 +442,7 @@ const routesDataFallback = [
     suggested_vehicle_en: "SUV or minivan",
     suggested_vehicle_es: "SUV o minivan",
     warning_en: "Very early departure recommended. High altitude trek after the drive. Bring warm layers. The trailhead is at Soraypampa.",
-    warning_es: "Se recomienda salida muy temprana. Trek de gran altitud despues del viaje. Lleva ropa de abrigo. El inicio del sendero esta en Soraypampa.",
+    warning_es: "Se recomienda salida muy temprana. Trek de gran altitud después del viaje. Lleva ropa de abrigo. El inicio del sendero está en Soraypampa.",
     tags: ["day-trip", "trek", "high-altitude"]
   },
   {
@@ -434,14 +450,14 @@ const routesDataFallback = [
     origin: "Cusco Center",
     destination: "Rainbow Mountain",
     name_en: "Cusco to Rainbow Mountain",
-    name_es: "Cusco a Montana de Colores",
+    name_es: "Cusco a Montaña de Colores",
     estimated_time_en: "3 to 3.5 hours each way",
     estimated_time_es: "3 a 3.5 horas por trayecto",
     logistics_level: "high",
     suggested_vehicle_en: "SUV or minivan",
     suggested_vehicle_es: "SUV o minivan",
     warning_en: "Extreme altitude. Depart Cusco around 4:00 AM. The trailhead is at Cusipata or Phulawasipata. Check weather conditions.",
-    warning_es: "Altitud extrema. Salida de Cusco alrededor de las 4:00 AM. El inicio del sendero esta en Cusipata o Phulawasipata. Revisa las condiciones climaticas.",
+    warning_es: "Altitud extrema. Salida de Cusco alrededor de las 4:00 AM. El inicio del sendero está en Cusipata o Phulawasipata. Revisa las condiciones climáticas.",
     tags: ["day-trip", "trek", "high-altitude"]
   }
 ];
@@ -450,74 +466,86 @@ const productsDataFallback = [
   {
     id: "machu-picchu-logistics",
     name_en: "Machu Picchu Logistics Check",
-    name_es: "Revision de Logistica para Machu Picchu",
+    name_es: "Revisión logística de Machu Picchu",
     price: "US$19",
-    description_en: "For travelers who need help reviewing Machu Picchu ticket, train, bus, guide, timing, luggage and return logistics.",
-    description_es: "Para viajeros que necesitan revisar entrada a Machu Picchu, tren, bus, guia, horarios, equipaje y logistica de retorno.",
+    description_en: "Review your Machu Picchu ticket, circuit or route, train, bus, guide, luggage and return timing.",
+    description_es: "Revisión de entrada a Machu Picchu, circuito o ruta, tren, bus, guía, equipaje y horario de retorno.",
     includes_en: [
-      "Review of your current Machu Picchu entry ticket and circuit",
-      "Train schedule alignment with entry time",
-      "Bus and guide coordination notes",
-      "Luggage storage and return transport planning",
-      "List of questions to confirm with your agency"
+      "Ticket and entry time review",
+      "Circuit or route check",
+      "Train and bus timing review",
+      "Luggage and return logistics",
+      "Questions to confirm before your visit"
     ],
     includes_es: [
-      "Revision de tu entrada a Machu Picchu y circuito actual",
-      "Alineacion de horario de tren con hora de entrada",
-      "Notas de coordinacion de bus y guia",
-      "Planificacion de almacenamiento de equipaje y transporte de retorno",
-      "Lista de preguntas para confirmar con tu agencia"
+      "Revisión de entrada y horario de ingreso",
+      "Revisión de circuito o ruta",
+      "Revisión de tiempos de tren y bus",
+      "Equipaje y logística de retorno",
+      "Preguntas que debes confirmar antes de la visita"
     ],
-    whatsapp_intent_en: "Hi, I am interested in the Machu Picchu Logistics Check service. I would like to review my Machu Picchu ticket, train schedule and logistics before my trip.",
-    whatsapp_intent_es: "Hola, estoy interesado en el servicio de Revision de Logistica para Machu Picchu. Me gustaria revisar mi entrada a Machu Picchu, horario de tren y logistica antes de mi viaje."
+    cta_en: "Ask by WhatsApp",
+    cta_es: "Consultar por WhatsApp",
+    cta_secondary_en: "I want this review",
+    cta_secondary_es: "Quiero esta revisión",
+    whatsapp_message_en: "Hi, I'm interested in the Machu Picchu Logistics Check.\n\nMy details:\n- Visit date:\n- Machu Picchu ticket:\n- Circuit or route:\n- Entry time:\n- Train:\n- Hotel or staying area:\n- Main concern:\n\nPlease tell me what information you need to review my logistics.",
+    whatsapp_message_es: "Hola, estoy interesado en la revisión logística de Machu Picchu.\n\nMis datos:\n- Fecha de visita:\n- Entrada a Machu Picchu:\n- Circuito o ruta:\n- Hora de ingreso:\n- Tren:\n- Hotel o zona de hospedaje:\n- Principal preocupación:\n\nPor favor, indícame qué información necesitas para revisar mi logística."
   },
   {
     id: "tour-package-sanity",
     name_en: "Tour Package Sanity Check",
-    name_es: "Revision de Paquete Turistico",
+    name_es: "Revisión de paquete turístico",
     price: "US$19",
-    description_en: "For travelers who already booked a package and want to understand what is included, what is missing and what questions to confirm.",
-    description_es: "Para viajeros que ya compraron un paquete y quieren entender que incluye, que falta y que preguntas deben confirmar.",
+    description_en: "Paste your tour package and we'll help you understand what is included, what is missing and what to confirm.",
+    description_es: "Pega tu paquete turístico y te ayudamos a entender qué incluye, qué falta y qué deberías confirmar con tu agencia.",
     includes_en: [
-      "Detailed review of your purchased itinerary",
-      "Identification of gaps or missing logistics",
-      "Timing analysis between activities",
-      "Clarity on inclusions and exclusions",
-      "Checklist of questions for your tour operator"
+      "Package inclusions review",
+      "Missing details checklist",
+      "Timing and logistics risks",
+      "Questions to send your agency",
+      "Free-time gaps detection"
     ],
     includes_es: [
-      "Revision detallada de tu itinerario comprado",
-      "Identificacion de vacios o logisticas faltantes",
-      "Analisis de tiempos entre actividades",
-      "Claridad sobre inclusiones y exclusiones",
-      "Lista de preguntas para tu operador turistico"
+      "Revisión de inclusiones del paquete",
+      "Lista de datos faltantes",
+      "Riesgos de tiempo y logística",
+      "Preguntas para enviar a tu agencia",
+      "Detección de tiempos libres o vacíos"
     ],
-    whatsapp_intent_en: "Hi, I already booked a tour package for Cusco and I would like a sanity check. I want to understand what is included, what might be missing, and what I should confirm with my agency.",
-    whatsapp_intent_es: "Hola, ya reserve un paquete turistico para Cusco y me gustaria una revision. Quiero entender que incluye, que podria faltar y que deberia confirmar con mi agencia."
+    cta_en: "Check my package",
+    cta_es: "Revisar mi paquete",
+    cta_secondary_en: "I want this check",
+    cta_secondary_es: "Quiero esta revisión",
+    whatsapp_message_en: "Hi, I'm interested in the Tour Package Sanity Check.\n\nI already booked or received a tour package and would like help understanding what is included, what is missing and what I should confirm.\n\nPackage or itinerary:\n[Paste here]",
+    whatsapp_message_es: "Hola, estoy interesado en la revisión de paquete turístico.\n\nYa compré o recibí un paquete turístico y quisiera ayuda para entender qué incluye, qué falta y qué debería confirmar.\n\nPaquete o itinerario:\n[Pegar aquí]"
   },
   {
     id: "full-cusco-plan",
     name_en: "Full Cusco Plan",
-    name_es: "Plan Completo para Cusco",
+    name_es: "Plan completo para Cusco",
     price: "From US$39",
-    description_en: "For travelers who want a personalized day-by-day Cusco plan based on dates, pace, interests and logistics.",
-    description_es: "Para viajeros que desean un plan personalizado dia por dia segun fechas, ritmo, intereses y logistica.",
+    description_en: "A personalized day-by-day Cusco plan based on your dates, pace, interests and logistics.",
+    description_es: "Un plan personalizado día por día para Cusco según tus fechas, ritmo, intereses y logística.",
     includes_en: [
-      "Day-by-day itinerary structure",
-      "Route optimization based on your hotel location",
-      "Altitude and acclimatization pacing",
-      "Transport and timing recommendations",
-      "Machu Picchu logistics integration"
+      "Day-by-day plan",
+      "Activity order",
+      "Transfer needs",
+      "Machu Picchu checklist",
+      "Altitude-safe pacing"
     ],
     includes_es: [
-      "Estructura de itinerario dia por dia",
-      "Optimizacion de rutas segun la ubicacion de tu hotel",
-      "Ritmo de aclimatacion y altitud",
-      "Recomendaciones de transporte y horarios",
-      "Integracion de logistica para Machu Picchu"
+      "Plan día por día",
+      "Orden recomendado de actividades",
+      "Necesidades de traslado",
+      "Checklist para Machu Picchu",
+      "Ritmo adaptado a la altura"
     ],
-    whatsapp_intent_en: "Hi, I would like a personalized Full Cusco Plan. I need help structuring my days in Cusco considering my dates, interests and logistics.",
-    whatsapp_intent_es: "Hola, me gustaria un Plan Completo personalizado para Cusco. Necesito ayuda para estructurar mis dias en Cusco considerando mis fechas, intereses y logistica."
+    cta_en: "Ask for a custom plan",
+    cta_es: "Consultar plan personalizado",
+    cta_secondary_en: "I want a custom plan",
+    cta_secondary_es: "Quiero un plan personalizado",
+    whatsapp_message_en: "Hi, I'm interested in a custom Full Cusco Plan.\n\nMy dates are:\nMy interests are:\nMy main concern is:",
+    whatsapp_message_es: "Hola, estoy interesado en un plan completo personalizado para Cusco.\n\nMis fechas son:\nMis intereses son:\nMi principal preocupación es:"
   }
 ];
 
@@ -531,7 +559,7 @@ const rulesDataFallback = [
     logic: "OR",
     severity: "info",
     message_en: "Airport pickups usually require the flight number and a buffer for delays. Confirm if the driver waits inside or outside the terminal.",
-    message_es: "Los recojos en el aeropuerto generalmente requieren el numero de vuelo y margen para retrasos. Confirma si el conductor espera dentro o fuera del terminal."
+    message_es: "Los recojos en el aeropuerto generalmente requieren el número de vuelo y margen para retrasos. Confirma si el conductor espera dentro o fuera del terminal."
   },
   {
     id: "train-connection",
@@ -546,7 +574,7 @@ const rulesDataFallback = [
     logic: "OR",
     severity: "warning",
     message_en: "Train connections require precise timing. Allow at least 60 minutes buffer before departure. Verify your train station and departure time.",
-    message_es: "Las conexiones de tren requieren precision de horarios. Deja al menos 60 minutos de margen antes de la salida. Verifica tu estacion y hora de salida."
+    message_es: "Las conexiones de tren requieren precisión de horarios. Deja al menos 60 minutos de margen antes de la salida. Verifica tu estación y hora de salida."
   },
   {
     id: "large-luggage",
@@ -556,7 +584,7 @@ const rulesDataFallback = [
     logic: "OR",
     severity: "warning",
     message_en: "Large luggage may require a van or SUV. Sedans often have limited trunk space. Confirm vehicle capacity with the provider.",
-    message_es: "Equipaje grande puede requerir una van o SUV. Los sedanes suelen tener espacio limitado en el maletero. Confirma la capacidad del vehiculo con el proveedor."
+    message_es: "Equipaje grande puede requerir una van o SUV. Los sedanes suelen tener espacio limitado en el maletero. Confirma la capacidad del vehículo con el proveedor."
   },
   {
     id: "group-travel",
@@ -569,7 +597,7 @@ const rulesDataFallback = [
     logic: "OR",
     severity: "info",
     message_en: "Groups of 5 or more typically need a van or minivan. Confirm the exact vehicle type and number of seats with the provider.",
-    message_es: "Grupos de 5 o mas personas generalmente necesitan una van o minivan. Confirma el tipo exacto de vehiculo y numero de asientos con el proveedor."
+    message_es: "Grupos de 5 o más personas generalmente necesitan una van o minivan. Confirma el tipo exacto de vehículo y número de asientos con el proveedor."
   },
   {
     id: "long-day-trip",
@@ -581,7 +609,7 @@ const rulesDataFallback = [
     logic: "OR",
     severity: "warning",
     message_en: "Long day trips require early departure and proper acclimatization. Bring warm clothing, water and snacks. Confirm return time with the driver.",
-    message_es: "Los tours de dia completo requieren salida temprana y buena aclimatacion. Lleva ropa abrigadora, agua y snacks. Confirma la hora de retorno con el conductor."
+    message_es: "Los tours de día completo requieren salida temprana y buena aclimatación. Lleva ropa abrigadora, agua y snacks. Confirma la hora de retorno con el conductor."
   },
   {
     id: "early-departure",
@@ -591,7 +619,7 @@ const rulesDataFallback = [
     logic: "OR",
     severity: "info",
     message_en: "Early morning transfers may have limited vehicle availability. Book in advance and confirm the night before.",
-    message_es: "Los traslados muy temprano pueden tener disponibilidad limitada de vehiculos. Reserva con anticipacion y confirma la noche anterior."
+    message_es: "Los traslados muy temprano pueden tener disponibilidad limitada de vehículos. Reserva con anticipación y confirma la noche anterior."
   },
   {
     id: "other-destination",
@@ -602,7 +630,7 @@ const rulesDataFallback = [
     logic: "OR",
     severity: "info",
     message_en: "Custom route selected. Please provide as much detail as possible in the additional notes so we can assist you accurately.",
-    message_es: "Ruta personalizada seleccionada. Por favor proporciona todos los detalles posible en las notas adicionales para poder asistirte con precision."
+    message_es: "Ruta personalizada seleccionada. Por favor proporciona todos los detalles posibles en las notas adicionales para poder asistirte con precisión."
   },
   {
     id: "altitude-warning",
@@ -613,7 +641,7 @@ const rulesDataFallback = [
     logic: "OR",
     severity: "warning",
     message_en: "This destination is at very high altitude. Make sure you have acclimatized in Cusco for at least 2 days before visiting.",
-    message_es: "Este destino esta a muy gran altitud. Asegurate de haber aclimatado en Cusco al menos 2 dias antes de visitarlo."
+    message_es: "Este destino está a muy gran altitud. Asegúrate de haber aclimatado en Cusco al menos 2 días antes de visitarlo."
   },
   {
     id: "sacred-valley-general",
@@ -628,7 +656,7 @@ const rulesDataFallback = [
     logic: "OR",
     severity: "info",
     message_en: "Sacred Valley routes are scenic but can be slow due to road conditions and traffic in small towns. Plan flexible timing.",
-    message_es: "Las rutas del Valle Sagrado son escenicas pero pueden ser lentas por condiciones de carretera y trafico en pueblos pequenos. Planifica horarios flexibles."
+    message_es: "Las rutas del Valle Sagrado son escénicas pero pueden ser lentas por condiciones de carretera y tráfico en pueblos pequeños. Planifica horarios flexibles."
   }
 ];
 
@@ -652,7 +680,9 @@ async function loadData() {
       useFallback = true;
     }
     if (productsRes.ok) {
-      productsData = await productsRes.json();
+      const loaded = await productsRes.json();
+      // Normalize loaded products: if they use old format, convert
+      productsData = loaded.map(normalizeProduct);
     } else {
       useFallback = true;
     }
@@ -678,6 +708,27 @@ async function loadData() {
 
   renderRoutes();
   renderProducts();
+}
+
+// Normalize products from v0.1 format to v0.2 format
+function normalizeProduct(prod) {
+  // If product already has new format fields, return as-is
+  if (prod.whatsapp_message_en && prod.cta_en) return prod;
+  // Convert from old format
+  const defaults = productsDataFallback.find(p => p.id === prod.id);
+  if (defaults) {
+    return {
+      ...defaults,
+      ...prod,
+      cta_en: defaults.cta_en,
+      cta_es: defaults.cta_es,
+      cta_secondary_en: defaults.cta_secondary_en,
+      cta_secondary_es: defaults.cta_secondary_es,
+      whatsapp_message_en: defaults.whatsapp_message_en,
+      whatsapp_message_es: defaults.whatsapp_message_es
+    };
+  }
+  return prod;
 }
 
 // ============================================
@@ -721,12 +772,18 @@ function renderProducts() {
     const name = prod[currentLang === "en" ? "name_en" : "name_es"];
     const desc = prod[currentLang === "en" ? "description_en" : "description_es"];
     const includes = prod[currentLang === "en" ? "includes_en" : "includes_es"];
-    const intent = prod[currentLang === "en" ? "whatsapp_intent_en" : "whatsapp_intent_es"];
+    const waMsg = prod[currentLang === "en" ? "whatsapp_message_en" : "whatsapp_message_es"];
+    const ctaPrimary = prod[currentLang === "en" ? "cta_en" : "cta_es"];
+    const ctaSecondary = prod[currentLang === "en" ? "cta_secondary_en" : "cta_secondary_es"];
     const includesLabel = translations.product_includes[currentLang];
-    const askBtn = translations.product_ask_whatsapp[currentLang];
-    const wantBtn = translations.product_want_this[currentLang];
 
     const includesList = includes.map(item => `<li>${escapeHtml(item)}</li>`).join("");
+
+    // GA4 event mapping per product
+    let gaEventPrimary = "product_selected";
+    if (prod.id === "machu-picchu-logistics") gaEventPrimary = "machu_picchu_check_clicked";
+    if (prod.id === "tour-package-sanity") gaEventPrimary = "package_check_clicked";
+    if (prod.id === "full-cusco-plan") gaEventPrimary = "full_plan_clicked";
 
     return `
       <div class="product-card">
@@ -736,8 +793,8 @@ function renderProducts() {
         <p style="font-size:0.82rem; font-weight:600; color:var(--color-earth); margin-bottom:6px;">${escapeHtml(includesLabel)}</p>
         <ul class="product-includes">${includesList}</ul>
         <div class="product-actions">
-          <a href="${buildWhatsAppUrl(intent)}" class="btn-primary" target="_blank" rel="noopener" onclick="trackEvent('whatsapp_click', { product: '${prod.id}', location: 'product_card' })">${escapeHtml(askBtn)}</a>
-          <a href="${buildWhatsAppUrl(intent + " " + (currentLang === "en" ? "I want to proceed with this review." : "Quiero proceder con esta revision."))}" class="btn-secondary" target="_blank" rel="noopener" onclick="trackEvent('product_selected', { product: '${prod.id}' })">${escapeHtml(wantBtn)}</a>
+          <a href="${buildWhatsAppUrl(waMsg)}" class="btn-primary" target="_blank" rel="noopener" onclick="trackEvent('${gaEventPrimary}', { product: '${prod.id}', location: 'product_card' })">${escapeHtml(ctaPrimary)}</a>
+          <a href="${buildWhatsAppUrl(waMsg)}" class="btn-secondary" target="_blank" rel="noopener" onclick="trackEvent('${gaEventPrimary}', { product: '${prod.id}', intent: 'secondary' })">${escapeHtml(ctaSecondary)}</a>
         </div>
       </div>
     `;
@@ -758,7 +815,7 @@ function prefillRoute(routeId) {
   if (originSelect) originSelect.value = route.origin;
   if (destSelect) destSelect.value = route.destination;
 
-  document.getElementById("quote-form-section")?.scrollIntoView({ behavior: "smooth" });
+  document.getElementById("transfer-quote")?.scrollIntoView({ behavior: "smooth" });
   trackEvent("route_selected", { route_id: routeId, origin: route.origin, destination: route.destination });
 }
 
@@ -780,7 +837,8 @@ function initForm() {
     trackEvent("transfer_quote_completed", {
       origin: formData.origin,
       destination: formData.destination,
-      travelers: formData.travelers
+      travelers: formData.travelers,
+      trip_type: formData.trip_type || "not_specified"
     });
   });
 
@@ -843,6 +901,7 @@ function generateQuoteResult(formData) {
     vehicle: translations.result_label_vehicle[currentLang],
     time: translations.result_label_time[currentLang],
     logistics: translations.result_label_logistics[currentLang],
+    tripType: translations.result_label_trip_type[currentLang],
     warnings: translations.result_warnings_title[currentLang],
     confirm: translations.result_confirm_title[currentLang],
     disclaimer: translations.result_disclaimer_text[currentLang]
@@ -857,7 +916,18 @@ function generateQuoteResult(formData) {
 
   const timeText = route
     ? (currentLang === "en" ? route.estimated_time_en : route.estimated_time_es)
-    : (currentLang === "en" ? "Depends on traffic and route conditions" : "Depende del trafico y condiciones de la ruta");
+    : (currentLang === "en" ? "Depends on traffic and route conditions" : "Depende del tráfico y condiciones de la ruta");
+
+  // Build trip type display
+  let tripTypeHtml = "";
+  if (formData.trip_type) {
+    const tripTypeLabel = getTripTypeLabel(formData.trip_type);
+    tripTypeHtml = `
+      <div class="result-meta-item">
+        <strong>${escapeHtml(labels.tripType)}</strong>
+        <span>${escapeHtml(tripTypeLabel)}</span>
+      </div>`;
+  }
 
   // Build warnings HTML
   let warningsHtml = "";
@@ -883,6 +953,7 @@ function generateQuoteResult(formData) {
 
   resultContent.innerHTML = `
     <div class="result-meta">
+      ${tripTypeHtml}
       <div class="result-meta-item">
         <strong>${escapeHtml(labels.route)}</strong>
         <span>${escapeHtml(formData.origin)} → ${escapeHtml(formData.destination)}</span>
@@ -912,6 +983,17 @@ function generateQuoteResult(formData) {
 
   resultContainer.classList.remove("hidden");
   resultContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function getTripTypeLabel(value) {
+  const keyMap = {
+    "transfer_only": currentLang === "en" ? "I need a transfer" : "Necesito un traslado",
+    "machu_picchu_booked": currentLang === "en" ? "I already booked Machu Picchu" : "Ya compré Machu Picchu",
+    "package_booked": currentLang === "en" ? "I already booked a tour package" : "Ya compré un paquete turístico",
+    "still_planning": currentLang === "en" ? "Still planning my itinerary" : "Aún estoy planificando mi itinerario",
+    "not_sure": currentLang === "en" ? "Not sure yet" : "No estoy seguro todavía"
+  };
+  return keyMap[value] || value;
 }
 
 // ============================================
@@ -960,25 +1042,32 @@ function buildWhatsAppMessage(formData, context) {
   const t = (en, es) => isEn ? en : es;
 
   const lines = [
-    t("Hi, I used Cusco Travel Helper and I would like to request a private transfer quote.", "Hola, use Cusco Travel Helper y quisiera solicitar una cotizacion de traslado privado."),
+    t("Hi, I used Cusco Travel Helper and I would like to request a private transfer quote.", "Hola, usé Cusco Travel Helper y quisiera solicitar una cotización de traslado privado."),
     "",
     t("Trip details:", "Detalles del viaje:")
   ];
 
-  const fields = [
+  const fields = [];
+
+  if (formData.trip_type) {
+    const tripTypeLabel = getTripTypeLabel(formData.trip_type);
+    fields.push([t("Trip type:", "Tipo de viaje:"), tripTypeLabel]);
+  }
+
+  fields.push(
     [t("Origin:", "Origen:"), formData.origin],
     [t("Destination:", "Destino:"), formData.destination],
     [t("Date:", "Fecha:"), formData.trip_date],
     [t("Time:", "Hora:"), formData.trip_time],
     [t("Travelers:", "Viajeros:"), formData.travelers],
     [t("Luggage:", "Equipaje:"), formData.luggage],
-    [t("Vehicle preference:", "Vehiculo preferido:"), formData.vehicle],
+    [t("Vehicle preference:", "Vehículo preferido:"), formData.vehicle],
     [t("Stops:", "Paradas:"), formData.stops],
     [t("Pickup details:", "Detalles de recojo:"), formData.pickup],
-    [t("Flight or train number:", "Numero de vuelo o tren:"), formData.flight_number || t("Not specified", "No especificado")],
-    [t("Main concern:", "Principal preocupacion:"), formData.concern],
+    [t("Flight or train number:", "Número de vuelo o tren:"), formData.flight_number || t("Not specified", "No especificado")],
+    [t("Main concern:", "Principal preocupación:"), formData.concern],
     [t("Additional notes:", "Notas adicionales:"), formData.notes || t("None", "Ninguna")]
-  ];
+  );
 
   fields.forEach(([label, value]) => {
     lines.push(`- ${label} ${value}`);
@@ -991,7 +1080,7 @@ function buildWhatsAppMessage(formData, context) {
   }
 
   lines.push("");
-  lines.push(t("Please confirm availability, final price and vehicle details.", "Por favor, confirmar disponibilidad, precio final y detalles del vehiculo."));
+  lines.push(t("Please confirm availability, final price and vehicle details.", "Por favor, confirmar disponibilidad, precio final y detalles del vehículo."));
 
   return lines.join("\n");
 }
